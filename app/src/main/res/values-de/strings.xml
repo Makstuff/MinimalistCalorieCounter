@@ -1,0 +1,122 @@
+
+<resources>
+    <string name="always_english">Immer Englisch</string>
+    <string name="always_german">Immer Deutsch</string>
+    <string name="app_name">Minimalist Calorie Counter</string>
+    <string name="archive">Archiv</string>
+    <string name="body_weight">KÃ¶rpergewicht</string>
+    <string name="button_add_food">Essen\nhinzufÃ¼gen</string>
+    <string name="button_add_ingredient">Zutat hinzufÃ¼gen</string>
+    <string name="button_add_to_day">Zu Tag hinzufÃ¼gen</string>
+    <string name="button_add_to_recipe">Zu Rezept\nhinzufÃ¼gen</string>
+    <string name="button_back">ZurÃ¼ck</string>
+    <string name="button_cancel">Abbrechen</string>
+    <string name="button_clear_input">ZurÃ¼cksetzen</string>
+    <string name="button_clear_recipe">Rezept\nlÃ¶schen</string>
+    <string name="button_confirm">BestÃ¤tigen</string>
+    <string name="button_continue">Fortsetzen</string>
+    <string name="button_create">Erstellen</string>
+    <string name="button_create_entry_manually">Eintrag manuell\nerstellen</string>
+    <string name="button_create_new_archive_entry">Archiveintrag\nerstellen</string>
+    <string name="button_delete">LÃ¶schen</string>
+    <string name="button_edit">Bearbeiten</string>
+    <string name="button_reset_day">ZurÃ¼cksetzen</string>
+    <string name="button_save_changes">Ã?nderungen\nspeichern</string>
+    <string name="button_save_new_weight">Neues Gewicht\nspeichern</string>
+    <string name="button_turn_day_to_archive_entry">Zu Archiveintrag\numwandeln</string>
+    <string name="button_turn_day_to_entry">Tag zu Eintrag\numwandeln</string>
+    <string name="button_turn_to_archive_entry">Archiveintrag aus\nTag erstellen</string>
+    <string name="button_turn_to_database_entry">Zu Datenbank-\neintrag umwandeln</string>
+    <string name="carbohydrate_protein_fat_combined">Kohlenhydrate, EiweiÃ?, Fett und Ballaststoffe kÃ¶nnen zusammen nicht mehr als 100g wiegen.</string>
+    <string name="carbohydrates_include_sugar">Kohlenhydrate inkludieren Zucker, deswegen kann Zucker kein hÃ¶heres Gewicht haben.</string>
+    <string name="choose_language">Sprache wÃ¤hlen</string>
+    <string name="combine">Rezept</string>
+    <string name="csv_wrong_number_fields">CSV hat die falsche Anzahl von Feldern</string>
+    <string name="custom_weights">Sofortgewichte</string>
+    <string name="custom_weights_example">z.b. \"55:1 LÃ¶ffel-110:2 LÃ¶ffel\"</string>
+    <string name="custom_weights_format">Sofortgewichte mÃ¼ssen das Format \"Nummer:Name-Nummer:Name-Â?\" haben</string>
+    <string name="dark_mode">Darkmode</string>
+    <string name="database">Datenbank</string>
+    <string name="database_navbar">Daten</string>
+    <string name="date">Datum</string>
+    <string name="date_pattern_long">MMMM d, y</string>
+    <string name="date_pattern_short">dd MMM</string>
+    <string name="day">Tag</string>
+    <string name="dialog_archive_clear">Du bist dabei, alle ArchiveintrÃ¤ge zu lÃ¶schen. Dies kann nicht rÃ¼ckgÃ¤ngig gemacht werden.</string>
+    <string name="dialog_archive_import">Eine Archivdatei zu importieren, Ã¼berschreibt in jedem fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
+    <string name="dialog_dangerous_action">GefÃ¤hrliche Aktion</string>
+    <string name="dialog_database_import">Eine Datenbankdatei zu importieren, Ã¼berschreibt in jedem fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
+    <string name="dialog_database_reset">Du bist dabei, deine gesamte Datenbank in den Ursprungszustand zurÃ¼ckzuversetzen. Alle EintrÃ¤ge, die Du hinzugefÃ¼gt hast, werden unwiederbringlich gelÃ¶scht.</string>
+    <string name="dialog_destructive_action">Destruktive Aktion</string>
+    <string name="dialog_language">Falls Du auch die Sprache der Standard-DatenbankeintrÃ¤ge Ã¤ndern willst, kannst du nach dem Ã?ndern der Sprache die Datenbank zurÃ¼cksetzen. Dabei wird dann die Standard-Datenbank der neuen Sprache geladen.</string>
+    <string name="dropdown_backup_archive">Archiv exportieren</string>
+    <string name="dropdown_backup_database">Datenbank exportieren</string>
+    <string name="dropdown_clear_archive">Archiv lÃ¶schen</string>
+    <string name="dropdown_github">Github (enthÃ¤lt Anleitung)</string>
+    <string name="dropdown_import_archive">Archiv importieren</string>
+    <string name="dropdown_import_database">Datenbank importieren</string>
+    <string name="dropdown_reset_database">Datenbank zurÃ¼cksetzen</string>
+    <string name="entry_from_empty_recipe">Kann keinen Datenbankeintrag aus leerem Rezept erstellen.</string>
+    <string name="example_recipe_name">z.B. \"Eintopf\"</string>
+    <string name="fat_includes_saturated_fat">Fett inkludiert gesÃ¤ttigte FettsÃ¤uren, deswegen kÃ¶nnen gesÃ¤ttigte FettsÃ¤uren nicht mehr weigen.</string>
+    <string name="food">Essen</string>
+    <string name="food_name_example">z.b. \"Apfel\"</string>
+    <string name="import_failed">Import gescheitert</string>
+    <string name="import_successful">Import erfolgreich, die Datei war fehlerfrei.</string>
+    <string name="is_in_quickselect">In Schnellauswahl</string>
+    <string name="is_invalid">ist fehlerhaft</string>
+    <string name="must_be_a_valid_number">muss eine valide Zahl sein</string>
+    <string name="must_be_larger_than">muss grÃ¶Ã?er sein als</string>
+    <string name="must_be_smaller_than">muss kleiner sein als</string>
+    <string name="name">Name</string>
+    <string name="name_cant_be_empty">Name darf nicht leer sein.</string>
+    <string name="name_capital_letter">Name muss mit einem GroÃ?buchstaben anfangen.</string>
+    <string name="name_no_commas">Name darf keine Beistriche oder ZeilenumbrÃ¼chen enthalten.</string>
+    <string name="options">Optionen</string>
+    <string name="overall_weight">Gesamtgewicht</string>
+    <string name="quickselect_value_">Schnellauswahl-Eintrag kann nur \"y\" oder \"n\" sein.</string>
+    <string name="recipe">Rezept</string>
+    <string name="sum_if_empty">sonst Summe</string>
+    <string name="system_default">Systemstandard</string>
+    <string name="title_add_food_to_day">Essen zu Tag hinzufÃ¼gen</string>
+    <string name="title_add_ingredient_to_recipe">Zutat zu Rezept hinzufÃ¼gen</string>
+    <string name="title_create_new_archive_entry">Neuen Archiveintrag erstellen</string>
+    <string name="title_create_new_database_entry">Datenbankeintrag erstellen</string>
+    <string name="title_edit_archive_entry">Archiveintrag bearbeiten</string>
+    <string name="title_edit_database_entry">Datenbankeintrag bearbeiten</string>
+    <string name="title_edit_food_in_day">Tag bearbeiten</string>
+    <string name="title_edit_weight_of">Bearbeite Gewicht von "</string>
+    <string name="title_enter_body_weight">KÃ¶rpergewicht eingeben</string>
+    <string name="title_enter_weight_of">"WÃ¤hle Gewicht von"</string>
+    <string name="title_ingredients_of_recipe">Zutaten im Rezept</string>
+    <string name="title_pick_food">Essen wÃ¤hlen</string>
+    <string name="title_pick_ingredient">Zutat wÃ¤hlen</string>
+    <string name="weight">Gewicht</string>
+    <string name="weight_of_food">Gewicht des Essens</string>
+    <string name="weight_of_ingredient">Gewicht der Zutat</string>
+    <string-array name="dark_mode_options">
+        <item>Immer dunkel</item>
+        <item>Immer hell</item>
+        <item>Wie System</item>
+    </string-array>
+    <string-array name="nutrient_names">
+        <item>Ballaststoffe</item>
+        <item>EiweiÃ?</item>
+        <item>Energie</item>
+        <item>Fett</item>
+        <item>Ges. FettsÃ¤uren</item>
+        <item>Kohlenhydrate</item>
+        <item>Preis</item>
+        <item>Zucker</item>
+    </string-array>
+    <string-array name="nutrient_names_short">
+        <item>BalSt.</item>
+        <item>EiweiÃ?</item>
+        <item>Energ.</item>
+        <item>Fett</item>
+        <item>Ges.F.</item>
+        <item>KHydr.</item>
+        <item>Preis</item>
+        <item>Zucker</item>
+    </string-array>
+</resources>
