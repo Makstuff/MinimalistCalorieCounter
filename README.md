@@ -11,3 +11,7 @@ My hope is that at least some people will enjoy this approach despite all its fl
 I would very much appreciate translations, as I am only able to provide English and German myself, so if you are willing to help out, just stop by. There's around 100 text pieces to tackle, and the time invested should be less than 1h once you are a little familiar with the app (as for myself, the initial translation from English to German took me less than 30min).
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff).
+
+## Screenshots
+
+![Combo](https://github.com/Makstuff/MinimalistCalorieCounter/assets/57408125/48908d2c-10d4-4b01-91a2-13dba96b1026)
