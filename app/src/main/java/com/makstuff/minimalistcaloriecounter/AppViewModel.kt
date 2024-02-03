@@ -164,6 +164,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         if (updateDependencies) {
             databaseWriteToCSV(context)
             databaseQuickselectUpdate()
+            databaseLetterReset()
         }
     }
 
@@ -304,6 +305,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         if (updateDependencies) {
             databaseWriteToCSV(context)
             databaseQuickselectUpdate()
+            databaseLetterReset()
         }
     }
 
@@ -451,6 +453,13 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             )
         }
     }
+    fun databaseLetterReset() {
+        _uiState.update { currentState ->
+            currentState.copy(
+                databaseLetter = mutableStateListOf()
+            )
+        }
+    }
 
 
     fun databaseQuickselectUpdate() {
@@ -495,6 +504,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             }
             databaseSortByName()
             databaseQuickselectUpdate()
+            databaseLetterReset()
         } catch (e: CSVFieldNumDifferentException) {
             throw IllegalStateException(context.getString(R.string.database) + ": " + context.getString(R.string.csv_wrong_number_fields))
         }

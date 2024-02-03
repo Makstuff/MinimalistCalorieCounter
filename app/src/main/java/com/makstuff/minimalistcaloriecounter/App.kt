@@ -613,6 +613,7 @@ fun App(
             composable("archive_edit_entry/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.archive.entries.size){
                     fun onConfirm() {
                         try {
                             viewModel.archiveDeleteEntry(index)
@@ -654,7 +655,7 @@ fun App(
                         context = context
                     )
                 }
-            }
+            }}
 
             composable("create_home") {
                 fun onCreateFood() {
@@ -697,6 +698,7 @@ fun App(
             composable("database_edit_entry/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.database.size){
                     fun onConfirmEdit() {
                         try {
                             viewModel.databaseEditEntryFromInput(index, context)
@@ -736,7 +738,7 @@ fun App(
                         context=context
                     )
                 }
-            }
+            }}
 
             composable("combine_add_component") {
                     ScreenDatabaseShowContent(
@@ -940,6 +942,7 @@ fun App(
             composable("day_add_weight/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.database.size){
                     fun onConfirm() {
                         try {
                             viewModel.dayAddFood(
@@ -998,11 +1001,12 @@ fun App(
                         }.reversed()
                     )
                 }
-            }
+            }}
 
             composable("day_edit_weight/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.day.components.size){
                     fun onConfirm() {
                         try {
                             viewModel.dayEditFoodWeight(
@@ -1060,11 +1064,12 @@ fun App(
                         }
                     )
                 }
-            }
+            }}
 
             composable("combine_add_weight/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.database.size){
                     fun onConfirm() {
                         try {
                             viewModel.currentComboAddComponent(
@@ -1125,10 +1130,12 @@ fun App(
                     )
                 }
             }
+            }
 
             composable("combine_edit_weight/{index}") {
                 val index = it.arguments?.getString("index")?.toIntOrNull()
                 if (index != null) {
+                    if(index < uiState.currentCombo.components.size){
                     fun onConfirm() {
                         try {
                             viewModel.currentComboEditComponentWeight(
@@ -1194,7 +1201,7 @@ fun App(
                         }
                     )
                 }
-            }
+            }}
         }
     }
 }
