@@ -18,11 +18,13 @@ import com.makstuff.minimalistcaloriecounter.essentials.toProperString
 fun MyComboComponentTile(
     component: Triple<Double, DatabaseEntry, Nutrients>,
     onClick: () -> Unit,
+    onLongClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     MyFilledButton(
         color = MaterialTheme.colorScheme.surfaceVariant,
         onClick = { onClick() },
+        onLongClick = { onLongClick() },
         modifier = modifier,
         content = {
             Row(

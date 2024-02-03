@@ -18,7 +18,6 @@ fun ScreenArchiveShowContent(
     archive: Archive,
     onClickEntry: (Int) -> Unit,
     onClickAddManually: () -> Unit,
-    onClickFromDay: () -> Unit,
     context: Context
 ) {
     Column(
@@ -30,7 +29,6 @@ fun ScreenArchiveShowContent(
             contentAbove = { },
             listOfTextButtons = listOf(
                 Pair(stringResource(R.string.button_create_entry_manually)) { onClickAddManually() },
-                Pair(stringResource(R.string.button_turn_day_to_entry)) { onClickFromDay() }
             ),
             content = {
                 MyScrollColumn(items = archive.entries.mapIndexed { index, archiveEntry ->

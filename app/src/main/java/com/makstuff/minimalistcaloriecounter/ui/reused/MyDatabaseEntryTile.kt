@@ -16,11 +16,13 @@ import com.makstuff.minimalistcaloriecounter.classes.DatabaseEntry
 fun MyDatabaseEntryTile(
     databaseEntry: DatabaseEntry,
     onClick: () -> Unit,
+    onLongClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     MyFilledButton(
         color = MaterialTheme.colorScheme.surfaceVariant,
         onClick = { onClick() },
+        onLongClick = { onLongClick() },
         modifier = modifier,
         content = {
             Row(

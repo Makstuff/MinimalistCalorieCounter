@@ -88,6 +88,8 @@ data class AppUiState(
     val alertDialogDatabaseReset: Boolean = false,
     val alertDialogArchiveImport: Boolean = false,
     val alertDialogDatabaseImport: Boolean = false,
+    val alertDialogRecipeReset: Boolean = false,
+    val alertDialogDayReset: Boolean = false,
     val dialogLanguage: Boolean = false,
 
 )

@@ -11,8 +11,8 @@ android {
         applicationId = "com.makstuff.minimalistcaloriecounter"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -52,7 +52,7 @@ android {
 
 dependencies {
     implementation("androidx.activity:activity-compose:1.8.2")
-    implementation("androidx.compose.material3:material3:1.2.0-beta02")
+    implementation("androidx.compose.material3:material3:1.2.0-rc01")
     implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.9.2")
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation("androidx.core:core-splashscreen:1.0.1")

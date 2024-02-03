@@ -1,7 +1,7 @@
 
 <resources>
-    <string name="always_english">Immer Englisch</string>
-    <string name="always_german">Immer Deutsch</string>
+    <string name="always_english">Englisch</string>
+    <string name="always_german">Deutsch</string>
     <string name="app_name">Minimalist Calorie Counter</string>
     <string name="archive">Archiv</string>
     <string name="body_weight">Körpergewicht</string>
@@ -12,7 +12,7 @@
     <string name="button_back">Zurück</string>
     <string name="button_cancel">Abbrechen</string>
     <string name="button_clear_input">Zurücksetzen</string>
-    <string name="button_clear_recipe">Rezept\nlöschen</string>
+    <string name="button_clear_recipe">Zurücksetzen</string>
     <string name="button_confirm">Bestätigen</string>
     <string name="button_continue">Fortsetzen</string>
     <string name="button_create">Erstellen</string>
@@ -24,17 +24,16 @@
     <string name="button_save_changes">Änderungen\nspeichern</string>
     <string name="button_save_new_weight">Neues Gewicht\nspeichern</string>
     <string name="button_turn_day_to_archive_entry">Zu Archiveintrag\numwandeln</string>
-    <string name="button_turn_day_to_entry">Tag zu Eintrag\numwandeln</string>
     <string name="button_turn_to_archive_entry">Archiveintrag aus\nTag erstellen</string>
     <string name="button_turn_to_database_entry">Zu Datenbank-\neintrag umwandeln</string>
     <string name="carbohydrate_protein_fat_combined">Kohlenhydrate, Eiweiß, Fett und Ballaststoffe können zusammen nicht mehr als 100g wiegen.</string>
     <string name="carbohydrates_include_sugar">Kohlenhydrate inkludieren Zucker, deswegen kann Zucker kein höheres Gewicht haben.</string>
     <string name="choose_language">Sprache wählen</string>
     <string name="combine">Rezept</string>
-    <string name="csv_wrong_number_fields">CSV hat die falsche Anzahl von Feldern</string>
+    <string name="csv_wrong_number_fields">CSV hat die falsche Anzahl von Feldern.</string>
     <string name="custom_weights">Sofortgewichte</string>
     <string name="custom_weights_example">z.b. \"55:1 Löffel-110:2 Löffel\"</string>
-    <string name="custom_weights_format">Sofortgewichte müssen das Format \"Nummer:Name-Nummer:Name-Â?\" haben</string>
+    <string name="custom_weights_format">Sofortgewichte müssen das Format \"Nummer:Name-Nummer:Name…?\" haben</string>
     <string name="dark_mode">Darkmode</string>
     <string name="database">Datenbank</string>
     <string name="database_navbar">Daten</string>
@@ -49,6 +48,8 @@
     <string name="dialog_database_reset">Du bist dabei, deine gesamte Datenbank in den Ursprungszustand zurückzuversetzen. Alle Einträge, die Du hinzugefägt hast, werden unwiederbringlich gelöscht.</string>
     <string name="dialog_destructive_action">Destruktive Aktion</string>
     <string name="dialog_language">Falls Du auch die Sprache der Standard-Datenbankeinträge ändern willst, kannst du nach dem ändern der Sprache die Datenbank zurücksetzen. Dabei wird dann die Standard-Datenbank der neuen Sprache geladen.</string>
+    <string name="dialog_reset_day">Du bist dabei, alle Essenseinträge in deinem Tag zu löschen.</string>
+    <string name="dialog_reset_recipe">Du bist dabei, alle Zutaten in deinem Rezept zu löschen.</string>
     <string name="dropdown_backup_archive">Archiv exportieren</string>
     <string name="dropdown_backup_database">Datenbank exportieren</string>
     <string name="dropdown_clear_archive">Archiv löschen</string>
@@ -70,7 +71,7 @@
     <string name="must_be_smaller_than">muss kleiner sein als</string>
     <string name="name">Name</string>
     <string name="name_cant_be_empty">Name darf nicht leer sein.</string>
-    <string name="name_capital_letter">Name muss mit einem Großbuchstaben anfangen.</string>
+    <string name="name_capital_letter">Name muss mit einem Großbuchstaben (A-Z) anfangen.</string>
     <string name="name_no_commas">Name darf keine Beistriche oder Zeilenumbrüchen enthalten.</string>
     <string name="options">Optionen</string>
     <string name="overall_weight">Gesamtgewicht</string>
@@ -95,28 +96,28 @@
     <string name="weight_of_food">Gewicht des Essens</string>
     <string name="weight_of_ingredient">Gewicht der Zutat</string>
     <string-array name="dark_mode_options">
-        <item>Immer dunkel</item>
-        <item>Immer hell</item>
+        <item>Dunkel</item>
+        <item>Hell</item>
         <item>Wie System</item>
     </string-array>
     <string-array name="nutrient_names">
-        <item>Ballaststoffe</item>
-        <item>Eiweiß</item>
         <item>Energie</item>
+        <item>Kohlenhydrate</item>
+        <item>Zucker</item>
+        <item>Eiweiß</item>
         <item>Fett</item>
         <item>Ges. Fettsäuren</item>
-        <item>Kohlenhydrate</item>
+        <item>Ballaststoffe</item>
         <item>Preis</item>
-        <item>Zucker</item>
     </string-array>
     <string-array name="nutrient_names_short">
-        <item>BalSt.</item>
-        <item>Eiweiß</item>
         <item>Energ.</item>
+        <item>KHydr.</item>
+        <item>Zucker</item>
+        <item>Eiweiß</item>
         <item>Fett</item>
         <item>Ges.F.</item>
-        <item>KHydr.</item>
+        <item>BalSt.</item>
         <item>Preis</item>
-        <item>Zucker</item>
     </string-array>
 </resources>

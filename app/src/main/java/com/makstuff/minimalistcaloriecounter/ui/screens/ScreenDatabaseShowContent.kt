@@ -14,6 +14,7 @@ fun ScreenDatabaseShowContent(
     database: List<DatabaseEntry>,
     indexList: SnapshotStateList<Int>,
     onFoodClicked: (Int) -> Unit,
+    onFoodLongClicked: (Int) -> Unit,
     onBack: () -> Unit,
 ) {
     MyScrollColumn(reverseScrolling = false, items = if(indexList.isEmpty()) listOf {
@@ -21,7 +22,7 @@ fun ScreenDatabaseShowContent(
     }
     else indexList.map {
         {
-            MyDatabaseEntryTile(database[it], { onFoodClicked(it) })
+            MyDatabaseEntryTile(database[it], { onFoodClicked(it) }, { onFoodLongClicked(it) })
         }
     }
     )
@@ -31,10 +32,11 @@ fun ScreenDatabaseShowContent(
 fun ScreenDatabaseShowContent2(
     database: List<DatabaseEntry>,
     onFoodClicked: (Int) -> Unit,
+    onFoodLongClicked: (Int) -> Unit
 ) {
     MyScrollColumn(reverseScrolling = false, items = database.mapIndexed { index, entry ->
         {
-            MyDatabaseEntryTile(entry, { onFoodClicked(index) })
+            MyDatabaseEntryTile(entry, { onFoodClicked(index) }, { onFoodLongClicked(index) })
         }
     }
     )

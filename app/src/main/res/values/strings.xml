@@ -1,6 +1,6 @@
 <resources>
-    <string name="always_english">Always English</string>
-    <string name="always_german">Always German</string>
+    <string name="always_english">English</string>
+    <string name="always_german">German</string>
     <string name="app_name">Minimalist Calorie Counter</string>
     <string name="archive">Archive</string>
     <string name="body_weight">Body weight</string>
@@ -11,7 +11,7 @@
     <string name="button_back">Back</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_clear_input">Clear input</string>
-    <string name="button_clear_recipe">Clear Recipe</string>
+    <string name="button_clear_recipe">Reset</string>
     <string name="button_confirm">Confirm</string>
     <string name="button_continue">Continue</string>
     <string name="button_create">Create</string>
@@ -23,17 +23,16 @@
     <string name="button_save_changes">Save changes</string>
     <string name="button_save_new_weight">Save new weight</string>
     <string name="button_turn_day_to_archive_entry">Turn Day to Archive Entry</string>
-    <string name="button_turn_day_to_entry">Turn Day to Entry</string>
     <string name="button_turn_to_archive_entry">Turn to Archive Entry</string>
     <string name="button_turn_to_database_entry">Turn to Database Entry</string>
     <string name="carbohydrate_protein_fat_combined">Carbohydrate, protein, fat and fiber combined can\'t weigh more than 100g.</string>
     <string name="carbohydrates_include_sugar">Carbohydrates include sugar, so sugar can\'t weigh more.</string>
     <string name="choose_language">Choose language</string>
-    <string name="combine">Combine</string>
+    <string name="combine">Recipe</string>
     <string name="csv_wrong_number_fields">CSV the has wrong number of fields.</string>
     <string name="custom_weights">Custom weights</string>
     <string name="custom_weights_example">e.g. \"55:1 Scoop-110:2 Scoops\"</string>
-    <string name="custom_weights_format">Custom weights must be of the format \"number:name-number:name-Â?\"</string>
+    <string name="custom_weights_format">Custom weights must be of the format \"number:name-number:name…?\"</string>
     <string name="dark_mode">Dark mode</string>
     <string name="database">Database</string>
     <string name="database_navbar">Database</string>
@@ -45,11 +44,13 @@
     <string name="dialog_archive_import">Importing an Archive file overrides the old file in any case, even if the new file might not be valid.</string>
     <string name="dialog_dangerous_action">Dangerous Action</string>
     <string name="dialog_database_import">Importing a Database file overrides the old file in any case, even if the new file might not be valid.</string>
-    <string name="dialog_database_reset">You are about to reset your Database to factory state. All the food you have added will be permanently lost.</string>
+    <string name="dialog_database_reset">You are about to reset your Database to factory state. All the Entries you have added will be permanently lost.</string>
     <string name="dialog_destructive_action">Destructive Action</string>
     <string name="dialog_language">If you want to change the language of the default Database Entries too, you can reset the Database after changing the language. It will then use the default file of the new language.</string>
-    <string name="dropdown_backup_archive">Backup Archive</string>
-    <string name="dropdown_backup_database">Backup Database</string>
+    <string name="dialog_reset_day">This will delete all the Food in your Day.</string>
+    <string name="dialog_reset_recipe">This will delete all the ingredients in your Recipe.</string>
+    <string name="dropdown_backup_archive">Export Archive</string>
+    <string name="dropdown_backup_database">Export Database</string>
     <string name="dropdown_clear_archive">Clear Archive</string>
     <string name="dropdown_github">Github (includes guide)</string>
     <string name="dropdown_import_archive">Import Archive</string>
@@ -69,7 +70,7 @@
     <string name="must_be_smaller_than">must be smaller than</string>
     <string name="name">Name</string>
     <string name="name_cant_be_empty">Name can\'t be empty.</string>
-    <string name="name_capital_letter">Name must start with capital letter.</string>
+    <string name="name_capital_letter">Name must start with a capital letter (A-Z).</string>
     <string name="name_no_commas">Name must not include commas or linebreaks.</string>
     <string name="options">Options</string>
     <string name="overall_weight">Overall weight</string>
@@ -94,28 +95,28 @@
     <string name="weight_of_food">Weight of Food</string>
     <string name="weight_of_ingredient">Weight of Ingredient</string>
     <string-array name="dark_mode_options">
-        <item>Always dark</item>
-        <item>Always light</item>
+        <item>Dark</item>
+        <item>Light</item>
         <item>System default</item>
     </string-array>
     <string-array name="nutrient_names">
-        <item>Carbohydrate</item>
-        <item>Cost</item>
         <item>Energy</item>
-        <item>Fat</item>
-        <item>Fiber</item>
-        <item>Protein</item>
-        <item>Saturated fat</item>
+        <item>Carbohydrate</item>
         <item>Sugar</item>
+        <item>Protein</item>
+        <item>Fat</item>
+        <item>Saturated fat</item>
+        <item>Fiber</item>
+        <item>Cost</item>
     </string-array>
     <string-array name="nutrient_names_short">
-        <item>Carb.</item>
-        <item>Cost</item>
         <item>Enrg.</item>
-        <item>Fat</item>
-        <item>Fiber</item>
-        <item>Prot.</item>
-        <item>S. Fat</item>
+        <item>Carb.</item>
         <item>Sugar</item>
+        <item>Prot.</item>
+        <item>Fat</item>
+        <item>S. Fat</item>
+        <item>Fiber</item>
+        <item>Cost</item>
     </string-array>
 </resources>

@@ -27,7 +27,7 @@ val GENERAL_WEIGHTS: List<Pair<String, String>> = listOf(
     Pair("250", "250"),
     Pair("300", "300"),
     Pair("350", "350"),
-    Pair("400", "350"),
+    Pair("400", "400"),
     Pair("450", "450"),
     Pair("500", "500"),
     Pair("600", "600"),

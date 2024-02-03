@@ -10,7 +10,7 @@ import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_QUICK
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
 import com.makstuff.minimalistcaloriecounter.essentials.toProperString
 
-open class DatabaseEntry(
+data class DatabaseEntry(
     val name: String = "",
     val nutrients: Nutrients,
     val customWeights: CustomWeights,
@@ -59,7 +59,7 @@ open class DatabaseEntry(
         check(Regex("""^[A-Z]""").containsMatchIn(name)) {
             context.getString(R.string.name_capital_letter)
         }
-        check(Regex("""^[^\n\r\,]*$""").containsMatchIn(name)) {
+        check(Regex("""^[^\n\r,]*$""").containsMatchIn(name)) {
             context.getString(R.string.name_no_commas)
         }
     }

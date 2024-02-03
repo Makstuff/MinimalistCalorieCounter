@@ -175,6 +175,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+
     fun updateArchiveEntryDate(date: LocalDate) {
         _uiState.update { currentState ->
             currentState.copy(
@@ -286,6 +287,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 day = Combo(context = context)
             )
         }
+        dayWriteToCSV(context)
     }
 
     fun currentComboReset(context: Context) {
@@ -294,6 +296,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 currentCombo = Combo(context = context)
             )
         }
+        currentComboWriteToCSV(context)
     }
 
     fun databaseDeleteAll(context: Context, updateDependencies: Boolean = true) {
@@ -365,14 +368,34 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _uiState.value.database.sortBy { it.name }
     }
 
-    fun databaseEditQuickselect(index: Int, bool: Boolean) {
-        _uiState.value.database[index].quickselect=bool
+    fun databaseEditQuickselect(index: Int, bool: Boolean, context: Context) {
+        val temp = uiState.value.database[index]
+        databaseDeleteEntry(index, false, context)
+        databaseAddEntry(
+            context,
+            true,
+            temp.copy(quickselect = bool)
+        )
     }
 
     fun setAlertDialogArchiveReset(bool: Boolean){
         _uiState.update { currentState ->
             currentState.copy(
                 alertDialogArchiveReset = bool
+            )
+        }
+    }
+    fun setAlertDialogDayReset(bool: Boolean){
+        _uiState.update { currentState ->
+            currentState.copy(
+                alertDialogDayReset = bool
+            )
+        }
+    }
+    fun setAlertDialogRecipeReset(bool: Boolean){
+        _uiState.update { currentState ->
+            currentState.copy(
+                alertDialogRecipeReset = bool
             )
         }
     }
@@ -438,7 +461,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             }
             _uiState.update { currentState ->
                 currentState.copy(
-                    databaseQuickselect = temp
+                    databaseQuickselect = temp.toMutableStateList()
                 )
             }
         }

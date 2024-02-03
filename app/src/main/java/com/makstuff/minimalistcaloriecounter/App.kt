@@ -159,7 +159,6 @@ fun App(
                     .outputStream()
             )
             viewModel.databaseUpdateFromCSV(context)
-            navTo("database_home")
                 Toast.makeText(
                     context, context.getString(R.string.database) + ": " + context.getString(R.string.import_successful), Toast.LENGTH_LONG
                 ).show()
@@ -189,7 +188,6 @@ fun App(
                         .outputStream()
                 )
                 viewModel.archiveUpdateFromCSV(context)
-                navTo("archive_home")
                 Toast.makeText(
                     context, context.getString(R.string.archive) + ": " + context.getString(R.string.import_successful), Toast.LENGTH_LONG
                 ).show()
@@ -298,6 +296,30 @@ fun App(
                                 dismissButton = {}
                             )
                         }}
+                    when {
+                        uiState.alertDialogDayReset -> {
+                            AlertDialog(
+                                onDismissRequest = {viewModel.setAlertDialogDayReset(false)},
+                                confirmButton = { MyTextButton(text = stringResource(R.string.button_confirm),onClick= {
+                                    viewModel.dayReset(context)
+                                    viewModel.setAlertDialogDayReset(false)
+                                })},
+                                dismissButton = { MyTextButton(text = stringResource(R.string.button_cancel), onClick= {viewModel.setAlertDialogDayReset(false)})},
+                                text = { Text(stringResource(R.string.dialog_reset_day))},
+                                title = {Text(stringResource(R.string.dialog_destructive_action))})
+                        }}
+                    when {
+                        uiState.alertDialogRecipeReset -> {
+                            AlertDialog(
+                                onDismissRequest = {viewModel.setAlertDialogRecipeReset(false)},
+                                confirmButton = { MyTextButton(text = stringResource(R.string.button_confirm),onClick= {
+                                    viewModel.currentComboReset(context)
+                                    viewModel.setAlertDialogRecipeReset(false)
+                                })},
+                                dismissButton = { MyTextButton(text = stringResource(R.string.button_cancel), onClick= {viewModel.setAlertDialogRecipeReset(false)})},
+                                text = { Text(stringResource(R.string.dialog_reset_recipe))},
+                                title = {Text(stringResource(R.string.dialog_destructive_action))})
+                        }}
 
                         MyDropdownMenu(
                         expanded = uiState.dropdownMenuVisible,
@@ -398,7 +420,7 @@ fun App(
                     contentAbove = {},
                     nutrients = uiState.day.overallNutrients,
                     listOfTextButtons = listOf(
-                        Pair(stringResource(R.string.button_reset_day)) { viewModel.dayReset(context) },
+                        Pair(stringResource(R.string.button_reset_day)) { viewModel.setAlertDialogDayReset(true) },
                         Pair(stringResource(R.string.button_add_food)) { navTo("day_home") },
                         Pair(stringResource(R.string.button_turn_to_archive_entry)) {
                             try {
@@ -434,6 +456,9 @@ fun App(
                                             viewModel.setNameFoodDayEdit(component.second.name)
                                             navTo("day_edit_weight/$index")
                                         },
+                                        onLongClick = {
+                                            viewModel.dayDeleteFood(index,context)
+                                        }
                                     )
                                 }
                             },
@@ -461,14 +486,28 @@ fun App(
                                             viewModel.setNameFoodCombineEdit(component.second.name)
                                             navTo("combine_edit_weight/$index")
                                         },
+                                        onLongClick = {
+                                            viewModel.currentComboDeleteComponent(index,context)
+                                        }
                                     )
                                 }
                             }
                         )
                     },
                     listOfTextButtons = listOf(
-                        Pair(stringResource(R.string.button_clear_recipe)) { viewModel.currentComboReset(context) },
-                        Pair(stringResource(R.string.button_add_ingredient)) { navTo("combine_home") }
+                        Pair(stringResource(R.string.button_clear_recipe)) { viewModel.setAlertDialogRecipeReset(true) },
+                        Pair(stringResource(R.string.button_add_ingredient)) { navTo("combine_home") },
+                        Pair(stringResource(R.string.button_turn_to_database_entry)) {
+                            try {
+                                val food = uiState.currentCombo.toDatabaseEntry()
+                                viewModel.databaseAddEntry(context, true, food)
+                                viewModel.currentComboReset(context)
+                                navTo("database_home")
+                            } catch (e: IllegalStateException) {
+                                Toast.makeText(context, e.message, Toast.LENGTH_LONG)
+                                    .show()
+                            }
+                        }
                     ),
                     context=context
                 )
@@ -490,18 +529,6 @@ fun App(
                     onClickAddManually = {
                         viewModel.resetArchiveEntryAllInput()
                         navTo("archive_create_entry_manually")
-                    },
-                    onClickFromDay = {
-                        viewModel.updateArchiveEntryDate(
-                            LocalDateTime.now().minusHours(12).toLocalDate()
-                        )
-                        viewModel.updateArchiveEntryBodyWeight("")
-                        viewModel.updateArchiveEntryAllNutrients(
-                            uiState.day.overallNutrients.stringValues(
-                                true
-                            ).toMutableStateList()
-                        )
-                        navTo("archive_create_entry_from_day")
                     },
                     context=context
                 )
@@ -720,6 +747,7 @@ fun App(
                             viewModel.setNameFoodCombineAdd(uiState.database[index].name)
                             navTo("combine_add_weight/$index")
                         },
+                        onFoodLongClicked = {},
                         onBack = {navTo("combine_home")}
                     )
 
@@ -734,6 +762,7 @@ fun App(
                             viewModel.setNameFoodDayAdd(uiState.database[index].name)
                             navTo("day_add_weight/$index")
                         },
+                        onFoodLongClicked = {},
                         onBack = {navTo("day_home")}
                     )
                 }
@@ -752,7 +781,9 @@ fun App(
                         viewModel.updateDatabaseEntryEditCustomWeights(uiState.database[index].customWeights.inputString)
                         viewModel.updateDatabaseEntryEditQuickselect(uiState.database[index].quickselect)
                         navTo("database_edit_entry/$index")
-                    }
+                    },
+                    onFoodLongClicked = { index ->
+                        viewModel.databaseDeleteEntry(index,true,context)}
                 )
             }
 
@@ -761,7 +792,7 @@ fun App(
                     contentAbove = {},
                     nutrients = uiState.day.overallNutrients,
                     listOfTextButtons = listOf(
-                        Pair(stringResource(R.string.button_reset_day)) { viewModel.dayReset(context) },
+                        Pair(stringResource(R.string.button_reset_day)) { viewModel.setAlertDialogDayReset(true) },
                         Pair(stringResource(R.string.button_edit)) { navTo("day_content") },
                         Pair(stringResource(R.string.button_turn_to_archive_entry)) {
                             viewModel.updateArchiveEntryDate(
@@ -801,8 +832,7 @@ fun App(
                                             navTo("day_add_weight/${it.first}")
                                         },
                                         onLongClick = {
-                                            viewModel.databaseEditQuickselect(it.first,false)
-                                            viewModel.databaseQuickselectUpdate()
+                                            viewModel.databaseEditQuickselect(it.first,false,context)
                                         }
                                     )
                                 }
@@ -857,7 +887,7 @@ fun App(
                     },
                     nutrients = uiState.currentCombo.overallNutrients,
                     listOfTextButtons = listOf(
-                        Pair(stringResource(R.string.button_clear_recipe)) { viewModel.currentComboReset(context) },
+                        Pair(stringResource(R.string.button_clear_recipe)) { viewModel.setAlertDialogRecipeReset(true) },
                         Pair(stringResource(R.string.button_edit)) { navTo("combine_content") },
                         Pair(stringResource(R.string.button_turn_to_database_entry)) {
                             try {
@@ -895,8 +925,7 @@ fun App(
                                             navTo("combine_add_weight/${it.first}")
                                         },
                                         onLongClick = {
-                                            viewModel.databaseEditQuickselect(it.first,false)
-                                            viewModel.databaseQuickselectUpdate()
+                                            viewModel.databaseEditQuickselect(it.first,false,context)
                                         }
                                     )
                                 }
