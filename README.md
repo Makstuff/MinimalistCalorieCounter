@@ -39,9 +39,9 @@ I'd guess for someone who's a little familiar with the app already, it would tak
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
 
-## Compatibility with USA food labels
+## Compatibility with USA-type food labels
 
-Unfortunately, through much of the development of this app, I was not aware how different USA food labels are compared to EU ones. They seem to be almost exclusively per arbitrary "portion" instead of per some fixed weight like 100g, and on top of that they include fiber in carbohydrate. If I had known about this sooner, I would have definitely included an option in the app, but now I would have to rewrite a whole lot of my messy code, and I honestly don't have the motivation at the moment. Might be something to tackle in the future, but for now I have just excluded USA from the target regions on the Play Store.
+Unfortunately, through much of the development of this app, I was not aware how different USA and other countries' food labels can be compared to EU ones. The USA ones seem to deal almost exclusively in arbitrary "portions" instead of in fixed weights like 100g, and on top of that they include fiber in carbohydrate. If I had known about this sooner, I would have definitely included an option in the app, but now I would have to rewrite a whole lot of my messy code, and I honestly don't have the motivation at the moment. Might be something to tackle in the future, but for now I have just excluded all non-EU countries from the target regions on the Play Store.
 
 ## Screenshots
 
