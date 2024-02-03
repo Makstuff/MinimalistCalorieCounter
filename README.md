@@ -32,8 +32,8 @@ Energy [kcal                    Protein [g]                     Fiber [g]  Cost 
 
 I would very much appreciate help with translations, as I am only able to provide English and German myself. The two files that would need to be translated are
 
-- the [App content](https://github.com/Makstuff/MinimalistCalorieCounter/blob/71fcbd46614d7215d8389f958830d982c8bdcc28/app/src/main/res/values/strings.xml) and
-- the [Starting Database](https://github.com/Makstuff/MinimalistCalorieCounter/blob/71fcbd46614d7215d8389f958830d982c8bdcc28/app/src/main/res/raw/database.csv).
+- the [App content](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/values/strings.xml) and
+- the [Starting Database](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/raw/database.csv).
 
 I'd guess for someone who's a little familiar with the app already, it would take around 1h overall. If you are willing to help out, you can either submit a pull-request or open an issue on here on Github, or just message me at makstuff@use.startmail.com.
 
