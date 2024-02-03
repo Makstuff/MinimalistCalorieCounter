@@ -6,7 +6,14 @@ After testing lots of different calorie counter apps without finding one I was c
 
 I hope that despite all that, this app will find its niche in the Play Store universe and make some lives a little easier.
 
-## Hints for users
+## User guide
+
+- I couldn't think of a clever way to label all the nutrient numbers in the scrollable lists, so I decided to just leave them out and have the user memorize their order instead, which is given below. Note that in the Database view, these values are per `100g`, but anywhere else they are already multiplied by the respective weight.
+```
+              Carbohydrate [g]               Fat [g]
+Energy [kcal                    Protein [g]                     Fiber [g]  Cost [€]
+              Sugar [g]                      Saturated fat [g]            
+```
 
 - If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
 - You can long-press Database, Day and Recipe Entries to instantly delete them. I should mention that I didn't add this functionality for Archive Entries because I felt it would not really be needed and potentially cause accidental deletions. To delete single Archive Entries, short-press them and then use the "Delete" button at the bottom. To delete all Archive Entries, use "Clear Archive" in the Options menu.
@@ -31,6 +38,10 @@ I would very much appreciate help with translations, as I am only able to provid
 I'd guess for someone who's a little familiar with the app already, it would take around 1h overall. If you are willing to help out, you can either submit a pull-request or open an issue on here on Github, or just message me at makstuff@use.startmail.com.
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
+
+## Compatibility with USA food labels
+
+Unfortunately, through much of the development of this app, I was not aware how different USA food labels are compared to EU ones. They seem to be almost exclusively per arbitrary "portion" instead of per some fixed weight like 100g, and on top of that they include fiber in carbohydrate. If I had known about this sooner, I would have definitely included an option in the app, but now I would have to rewrite a whole lot of my messy code, and I honestly don't have the motivation at the moment. Might be something to tackle in the future, but for now I have just excluded USA from the target regions on the Play Store.
 
 ## Screenshots
 
