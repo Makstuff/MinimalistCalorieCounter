@@ -96,9 +96,9 @@
     <string name="weight_of_food">Gewicht des Essens</string>
     <string name="weight_of_ingredient">Gewicht der Zutat</string>
     <string-array name="dark_mode_options">
-        <item>Dunkel</item>
-        <item>Hell</item>
         <item>Wie System</item>
+        <item>Hell</item>
+        <item>Dunkel</item>
     </string-array>
     <string-array name="nutrient_names">
         <item>Energie</item>
