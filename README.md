@@ -30,7 +30,9 @@ Energy [kcal                    Protein [g]                     Fiber [g]  Cost 
 
 ## Support
 
-I would very much appreciate help with translations, as I am only able to provide English and German myself. The two files that would need to be translated are
+Please don't hesitate to report even tiny bugs like spelling mistakes, and especially crashes. I have put in a lot of effort to make crashing the app pretty much impossible, but I am pretty sure I must have missed a few little things here and there.
+
+I also would very much appreciate help with translations, as I am only able to provide English and German myself. The two files that would need to be translated are
 
 - the [App content](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/values/strings.xml) and
 - the [Starting Database](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/raw/database.csv).
