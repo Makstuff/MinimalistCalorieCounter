@@ -8,16 +8,18 @@ I hope that despite all that, this app will find its niche in the Play Store uni
 
 ## User guide
 
+Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear. Please let me know if you feel anything essential is missing.
+
+- If you often eat the same amount of a certain food, you can add a set of "custom weights" to make these weights available with just one click. To add these to an existing Entry, click on it in the Database, fill in the bottom field with the weights and names seperated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops" and save the changes. For your most-eaten foods, you can even flip the Quickselect switch there, which will make them appear directly on the homescreens for a simple one-click add.
 - I couldn't think of a clever way to label all the nutrient numbers in the scrollable lists, so I decided to just leave them out and have the user memorize their order instead, which is given below. Note that in the Database view, these values are per `100g`, but anywhere else they are already multiplied by the respective weight.
 ```
               Carbohydrate [g]               Fat [g]
 Energy [kcal                    Protein [g]                     Fiber [g]  Cost [€]
               Sugar [g]                      Saturated fat [g]            
 ```
-
-- If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
 - You can long-press Database, Day and Recipe Entries to instantly delete them. I should mention that I didn't add this functionality for Archive Entries because I felt it would not really be needed and potentially cause accidental deletions. To delete single Archive Entries, short-press them and then use the "Delete" button at the bottom. To delete all Archive Entries, use "Clear Archive" in the Options menu.
 - You can long-press Quickselect Panels to instantly disable Quickselect for this Database Entry, without deleting it completely. To ENABLE Quickselect, click on the Entry in the Database view, enable the Quickselect switch and press "Save Changes".
+- If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
 - In the input screens with multiple text fields, in most of them the "Enter" key on the keyboard is replaced by a "Next" key that allows you to directly jump to the next text field. On the last text field there is a "Checkmark" key instead that acts as an alternate confirm button.
 - In the Starting Database,
     - "Beef", "Chicken" and "Pork" are average values that I eyeballed inbetween a variety of common cuts.
