@@ -2,7 +2,7 @@
 <resources>
     <string name="always_english">Englisch</string>
     <string name="always_german">Deutsch</string>
-    <string name="app_name">Minimalist Calorie Counter</string>
+    <string name="app_name">Einfacher Kalorienzähler</string>
     <string name="archive">Archiv</string>
     <string name="body_weight">Körpergewicht</string>
     <string name="button_add_food">Essen\nhinzufügen</string>
@@ -16,8 +16,8 @@
     <string name="button_confirm">Bestätigen</string>
     <string name="button_continue">Fortsetzen</string>
     <string name="button_create">Erstellen</string>
-    <string name="button_create_entry_manually">Eintrag manuell erstellen</string>
-    <string name="button_create_new_archive_entry">Archiveintrag\nerstellen</string>
+    <string name="button_create_entry_manually">Archiveintrag manuell erstellen</string>
+    <string name="button_create_new_archive_entry">Erstellen</string>
     <string name="button_delete">Löschen</string>
     <string name="button_edit">Bearbeiten</string>
     <string name="button_reset_day">Zurücksetzen</string>
@@ -42,12 +42,12 @@
     <string name="date_pattern_short">dd MMM</string>
     <string name="day">Tag</string>
     <string name="dialog_archive_clear">Du bist dabei, alle Archiveinträge zu löschen. Dies kann nicht rückgängig gemacht werden.</string>
-    <string name="dialog_archive_import">Eine Archivdatei zu importieren, überschreibt in jedem fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
+    <string name="dialog_archive_import">Eine Archivdatei zu importieren, überschreibt in jedem Fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
     <string name="dialog_dangerous_action">Gefährliche Aktion</string>
-    <string name="dialog_database_import">Eine Datenbankdatei zu importieren, überschreibt in jedem fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
+    <string name="dialog_database_import">Eine Datenbankdatei zu importieren, überschreibt in jedem Fall die alte Datei, selbst wenn die neue Datei fehlerhaft sein sollte.</string>
     <string name="dialog_database_reset">Du bist dabei, deine gesamte Datenbank in den Ursprungszustand zurückzuversetzen. Alle Einträge, die Du hinzugefägt hast, werden unwiederbringlich gelöscht.</string>
     <string name="dialog_destructive_action">Destruktive Aktion</string>
-    <string name="dialog_language">Falls Du auch die Sprache der Standard-Datenbankeinträge ändern willst, kannst du nach dem ändern der Sprache die Datenbank zurücksetzen. Dabei wird dann die Standard-Datenbank der neuen Sprache geladen.</string>
+    <string name="dialog_language">Falls Du auch die Sprache der Standard-Datenbankeinträge ändern willst, kannst Du nach dem Ändern der Sprache die Datenbank zurücksetzen. Dabei wird dann die Standard-Datenbank der neuen Sprache geladen.</string>
     <string name="dialog_reset_day">Du bist dabei, alle Essenseinträge in deinem Tag zu löschen.</string>
     <string name="dialog_reset_recipe">Du bist dabei, alle Zutaten in deinem Rezept zu löschen.</string>
     <string name="dropdown_backup_archive">Archiv exportieren</string>
@@ -62,8 +62,8 @@
     <string name="fat_includes_saturated_fat">Fett inkludiert gesättigte Fettsäuren, deswegen können gesättigte Fettsäuren nicht mehr weigen.</string>
     <string name="food">Essen</string>
     <string name="food_name_example">z.b. \"Apfel\"</string>
-    <string name="import_failed">Import gescheitert</string>
-    <string name="import_successful">Import erfolgreich, die Datei war fehlerfrei.</string>
+    <string name="import_failed">Import gescheitert.</string>
+    <string name="import_successful">Import erfolgreich.</string>
     <string name="is_in_quickselect">In Schnellauswahl</string>
     <string name="is_invalid">ist fehlerhaft</string>
     <string name="must_be_a_valid_number">muss eine valide Zahl sein</string>
