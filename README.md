@@ -21,14 +21,7 @@ Energy [kcal                    Protein [g]                     Fiber [g]  Cost 
 - You can long-press Quickselect Panels to instantly disable Quickselect for this Database Entry, without deleting it completely. To ENABLE Quickselect, click on the Entry in the Database view, enable the Quickselect switch and press "Save Changes".
 - If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
 - In the input screens with multiple text fields, in most of them the "Enter" key on the keyboard is replaced by a "Next" key that allows you to directly jump to the next text field. On the last text field there is a "Checkmark" key instead that acts as an alternate confirm button.
-- In the Starting Database,
-    - "Beef", "Chicken" and "Pork" are average values that I eyeballed inbetween a variety of common cuts.
-    - "Meal (healthy)" is 1/3 chicken, brown rice and broccoli each, with a price like you could expect at a cheap restaurant.
-    - "Meal (fast food)" is calculated from a large burger with large fries, using the price and nutrient data from McDonalds. 
-    - "Meal (average)" is the average between Meal (healthy) and Meal (fast food).
-    - "Bread" is the average between whole grain rye bread and white wheat toast.
-    - "Pastry" is the eyeballed average over a wider range of sweet baked goods.
-    - "Soda" is an average lemonade with no nutrients except 10g sugar.
+- If you do not like the provided standard database, you can import [database_empty.csv](https://github.com/Makstuff/MinimalistCalorieCounter/blob/9da0ef3786e6f7f54b71d335681c2f8e5c225166/database_empty.csv) to clear out everything.
 
 ## Support
 
