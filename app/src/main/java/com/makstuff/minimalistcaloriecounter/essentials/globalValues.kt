@@ -19,10 +19,19 @@ val CREATE = NavButton.CREATE
 val COMBINE = NavButton.COMBINE
 
 val GENERAL_WEIGHTS: List<Pair<String, String>> = listOf(
+    Pair("5", "5"),
+    Pair("10", "10"),
+    Pair("15", "15"),
+    Pair("20", "20"),
+    Pair("30", "30"),
+    Pair("40", "40"),
+    Pair("60", "60"),
+    Pair("80", "80"),
     Pair("100", "100"),
-    Pair("125", "125"),
-    Pair("150", "150"),
-    Pair("175", "175"),
+    Pair("120", "120"),
+    Pair("140", "140"),
+    Pair("160", "160"),
+    Pair("180", "180"),
     Pair("200", "200"),
     Pair("250", "250"),
     Pair("300", "300"),
@@ -30,7 +39,6 @@ val GENERAL_WEIGHTS: List<Pair<String, String>> = listOf(
     Pair("400", "400"),
     Pair("450", "450"),
     Pair("500", "500"),
-    Pair("600", "600"),
 )
 
 data class NutrientProperties(

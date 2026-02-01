@@ -1,18 +1,19 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
     namespace = "com.example.nutricalc"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.makstuff.minimalistcaloriecounter"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        targetSdk = 36
+        versionCode = 9
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -40,9 +41,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -51,10 +49,10 @@ android {
 }
 
 dependencies {
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation("androidx.compose.material3:material3:1.2.0-rc01")
-    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.9.2")
-    implementation("androidx.navigation:navigation-compose:2.7.6")
-    implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.activity:activity-compose:1.12.3")
+    implementation("androidx.compose.material3:material3:1.4.0")
+    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.10.0")
+    implementation("androidx.navigation:navigation-compose:2.9.7")
+    implementation("androidx.core:core-splashscreen:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
 }
