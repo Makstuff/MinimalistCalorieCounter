@@ -2,4 +2,4 @@
 
 All data gathered by the application stays on the device, and is not transmitted to our or any third party servers.
 
-Contact: makstuff@use.startmail.com
+Contact: message.makstuff@outlook.com
