@@ -1,7 +1,7 @@
 package com.makstuff.minimalistcaloriecounter.classes
 
 import android.content.Context
-import com.example.nutricalc.R
+import com.makstuff.minimalistcaloriecounter.R
 
 class CustomWeights(
     val inputString: String = "",
@@ -11,7 +11,7 @@ class CustomWeights(
 
     init {
         check(
-            inputString == "" || Regex("""^\d+(\.\d+)?:[\w ]+(-\d+(\.\d+)?:[\w\ ]+)*$""").containsMatchIn(
+            inputString == "" || Regex("""^\d+(\.\d+)?:[\w ]+(-\d+(\.\d+)?:[\w ]+)*$""").containsMatchIn(
                 inputString
             )
         ) {

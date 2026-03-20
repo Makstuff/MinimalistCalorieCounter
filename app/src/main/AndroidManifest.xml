@@ -10,14 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NutriCalc"
+        android:theme="@style/Theme.App.Starting"
         tools:targetApi="36">
         <activity
             android:name="com.makstuff.minimalistcaloriecounter.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustNothing"
-            android:theme="@style/Theme.NutriCalc">
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

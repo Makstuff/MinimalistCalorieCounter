@@ -16,15 +16,17 @@ import com.makstuff.minimalistcaloriecounter.ui.theme.LocalTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        
         enableEdgeToEdge()
+        
         setContent {
             val viewModel: AppViewModel = viewModel()
             val uiState by viewModel.uiState.collectAsState()
-            installSplashScreen().apply {
-                setKeepOnScreenCondition {
-                    uiState.loading
-                }
+            
+            splashScreen.setKeepOnScreenCondition {
+                uiState.loading
             }
 
             val darkTheme = when (uiState.themeUserSetting) {
@@ -40,6 +42,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-
-

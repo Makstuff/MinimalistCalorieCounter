@@ -5,7 +5,6 @@ import android.content.Context
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.AndroidViewModel
-import com.example.nutricalc.R
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.github.doyaaaaaken.kotlincsv.dsl.csvWriter
 import com.github.doyaaaaaken.kotlincsv.util.CSVFieldNumDifferentException
@@ -370,16 +369,6 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _uiState.value.database.sortBy { it.name }
     }
 
-    fun databaseEditQuickselect(index: Int, bool: Boolean, context: Context) {
-        val temp = uiState.value.database[index]
-        databaseDeleteEntry(index, false, context)
-        databaseAddEntry(
-            context,
-            true,
-            temp.copy(quickselect = bool)
-        )
-    }
-
     fun setAlertDialogArchiveReset(bool: Boolean){
         _uiState.update { currentState ->
             currentState.copy(
@@ -444,7 +433,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun databaseLetterFilter(char: Char) {
         val list = mutableListOf<Int>()
-        uiState.value.database.forEachIndexed() { index, food ->
+        uiState.value.database.forEachIndexed { index, food ->
             if (food.name[0] == char) list.add(index)
         }
         _uiState.update { currentState ->
@@ -505,7 +494,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             databaseSortByName()
             databaseQuickselectUpdate()
             databaseLetterReset()
-        } catch (e: CSVFieldNumDifferentException) {
+        } catch (_: CSVFieldNumDifferentException) {
             throw IllegalStateException(context.getString(R.string.database) + ": " + context.getString(R.string.csv_wrong_number_fields))
         }
     }
@@ -584,7 +573,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                     currentCombo = Combo.fromCSV(rows,context)
                 )
             }
-        } catch (e: CSVFieldNumDifferentException) {
+        } catch (_: CSVFieldNumDifferentException) {
             throw IllegalStateException(context.getString(R.string.recipe) + ": " + context.getString(R.string.csv_wrong_number_fields))
         }
     }
@@ -599,7 +588,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                     day = Combo.fromCSV(rows,context)
                 )
             }
-        } catch (e: CSVFieldNumDifferentException) {
+        } catch (_: CSVFieldNumDifferentException) {
             throw IllegalStateException(context.getString(R.string.day)+ ": " + context.getString(R.string.csv_wrong_number_fields))
         }
     }
@@ -649,7 +638,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                     archive = Archive.fromCSV(rows,context)
                 )
             }
-        } catch (e: CSVFieldNumDifferentException) {
+        } catch (_: CSVFieldNumDifferentException) {
             throw IllegalStateException(context.getString(R.string.archive)+ ": " + context.getString(R.string.csv_wrong_number_fields))
         }
     }

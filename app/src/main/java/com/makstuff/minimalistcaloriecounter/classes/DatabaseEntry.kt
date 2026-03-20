@@ -1,7 +1,7 @@
 package com.makstuff.minimalistcaloriecounter.classes
 
 import android.content.Context
-import com.example.nutricalc.R
+import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_CUSTOM_WEIGHT
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NAME
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NUTRIENTS_LOWER
@@ -52,7 +52,7 @@ data class DatabaseEntry(
     }
 
     val stringCSV =
-        listOf(name) + nutrients.stringValues(true) + listOf(customWeights.inputString) + listOf(if (quickselect == true) "y" else "n")
+        listOf(name) + nutrients.stringValues(true) + listOf(customWeights.inputString) + listOf(if (quickselect) "y" else "n")
 
     private fun checkName(name: String) {
         check(name != "") { context.getString(R.string.name_cant_be_empty) }

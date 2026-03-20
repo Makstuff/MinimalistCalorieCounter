@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
@@ -21,13 +23,14 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import com.example.nutricalc.R
+import androidx.compose.ui.unit.dp
+import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
-import com.makstuff.minimalistcaloriecounter.ui.reused.MyGrid
-import com.makstuff.minimalistcaloriecounter.ui.reused.MyRowOfTextButtons
-import com.makstuff.minimalistcaloriecounter.ui.reused.MySingleLineText
-import com.makstuff.minimalistcaloriecounter.ui.reused.MyTextField
-import com.makstuff.minimalistcaloriecounter.ui.reused.MyTextFieldPanel
+import com.makstuff.minimalistcaloriecounter.ui.reused.Grid
+import com.makstuff.minimalistcaloriecounter.ui.reused.RowOfButtonText
+import com.makstuff.minimalistcaloriecounter.ui.reused.TextOneLine
+import com.makstuff.minimalistcaloriecounter.ui.reused.TextField
+import com.makstuff.minimalistcaloriecounter.ui.reused.ButtonTextfield
 
 @Composable
 fun ScreenDatabaseEntry(
@@ -48,15 +51,13 @@ fun ScreenDatabaseEntry(
     LaunchedEffect(Unit) {
         if (inputName == "") focusRequester.requestFocus()
     }
-    Column(
-        verticalArrangement = Arrangement.SpaceBetween,
-    ) {
-        MyGrid(
+    Column{
+        Grid(
             columns = 3,
             reverseUpDown = false,
             reverseLeftRight = false,
             items = listOf<Pair<Int, @Composable () -> Unit>>(Pair(2) {
-                MyTextField(
+                TextField(
                     value = inputName,
                     onValueChange = { onUpdateName(it) },
                     label = stringResource(R.string.name),
@@ -73,7 +74,7 @@ fun ScreenDatabaseEntry(
                 )
             }) + NUTRIENT_PROPERTIES.mapIndexed { index, nutrientProperties ->
                 Pair<Int, @Composable () -> Unit>(1) {
-                    MyTextField(
+                    TextField(
                         value = inputNutrients[index],
                         onValueChange = { onUpdateNutrient(it, index) },
                         label = context.resources.getStringArray(R.array.nutrient_names)[index],
@@ -90,26 +91,28 @@ fun ScreenDatabaseEntry(
                     )
                 }
             } + listOf<Pair<Int, @Composable () -> Unit>>(Pair(2) {
-                MyTextFieldPanel(
-                    color = MaterialTheme.colorScheme.surfaceVariant,
-                    onClick = { },
+                ButtonTextfield(
+                    onClick = { onToggleSwitch() },
                     content = {
                         Row(
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            MySingleLineText(text = stringResource(R.string.is_in_quickselect))
+                            TextOneLine(
+                                text = stringResource(R.string.is_in_quickselect),
+                                color = if (inputQuickSelectBoolean) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
                             Switch(
                                 checked = inputQuickSelectBoolean,
-                                onCheckedChange = { onToggleSwitch() }
+                                onCheckedChange = null
                             )
                         }
                     }
                 )
             }
             ) + listOf<Pair<Int, @Composable () -> Unit>>(Pair(3) {
-                MyTextField(
+                TextField(
                     value = inputQuickSelectWeights,
                     onValueChange = { onUpdateQuickSelectWeights(it) },
                     label = stringResource(R.string.custom_weights),
@@ -125,6 +128,7 @@ fun ScreenDatabaseEntry(
                 )
             })
         )
-        MyRowOfTextButtons(list = listOfTextButtons)
+        Spacer(Modifier.height(4.dp))
+        RowOfButtonText(list = listOfTextButtons)
     }
 }

@@ -10,7 +10,7 @@ I hope that despite all that, this app will find its niche in the Play Store uni
 
 Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear. Please let me know if you feel anything essential is missing.
 
-- If you often eat the same amount of a certain food, you can add a set of "custom weights" to make these weights available with just one click. To add these to an existing Entry, click on it in the Database, fill in the bottom field with the weights and names seperated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and save the changes. For your most-eaten foods, you can even flip the Quickselect switch there, which will make them appear directly on the homescreens for a simple one-click add.
+- If you often eat the same amount of a certain food, you can add a set of "custom weights" to make these weights available with just one click. To add these to an existing Entry, click on it in the Database, fill in the bottom field with the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and save the changes. For your most-eaten foods, you can even flip the Quickselect switch there, which will make them appear directly on the homescreens for a simple one-click add.
 - I couldn't think of a clever way to label all the nutrient numbers in the scrollable lists, so I decided to just leave them out and have the user memorize their order instead, which is given below. Note that in the Database view, these values are per `100g`, but anywhere else they are already multiplied by the respective weight.
 ```
               Carbohydrate [g]               Fat [g]
@@ -32,13 +32,13 @@ I also would very much appreciate help with translations, as I am only able to p
 - the [App content](https://github.com/Makstuff/MinimalistCalorieCounter/blob/86285a07f2e8d764a30f6240634d18be67476d6b/app/src/main/res/values/strings.xml) and
 - the [Starting Database](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/raw/database.csv).
 
-I'd guess for someone who's a little familiar with the app already, it would take around 1h overall. If you are willing to help out, you can either submit a pull-request or just open an issue on here on Github.
+I'd guess for someone who's a little familiar with the app already, it would take around 1h overall. If you are willing to help out, you can either submit a pull-request or just open an issue on here on GitHub.
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
 
 ## Compatibility with USA-type food labels
 
-Unfortunately, through much of the development of this app, I was not aware how different USA and other countries' food labels can be compared to EU ones. The USA ones seem to deal almost exclusively in arbitrary "portions" instead of in fixed weights like 100g, and on top of that they include fiber in carbohydrate. If I had known about this sooner, I would have definitely included an option in the app, but now I would have to rewrite a whole lot of my messy code, and I honestly don't have the motivation at the moment. Might be something to tackle in the future, but for now I have just excluded all non-EU countries from the target regions on the Play Store.
+Unfortunately, through much of the development of this app, I was not aware how different USA and other countries' food labels can be compared to EU ones. The USA ones seem to deal almost exclusively in arbitrary "portions" instead of in fixed weights like 100g, and on top of that they include fiber in carbohydrate. If I had known about this sooner, I would have definitely included an option in the app. But now I would have to rewrite a lot of my messy code, and I honestly don't have the motivation at the moment. Might be something to tackle in the future, but for now I have just excluded all non-EU countries from the target regions on the Play Store.
 
 ## Screenshots
 

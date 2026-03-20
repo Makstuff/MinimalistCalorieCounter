@@ -2,7 +2,7 @@ package com.makstuff.minimalistcaloriecounter.classes
 
 import android.content.Context
 import androidx.compose.runtime.toMutableStateList
-import com.example.nutricalc.R
+import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
 import com.makstuff.minimalistcaloriecounter.essentials.toCost
 import com.makstuff.minimalistcaloriecounter.essentials.toProperString
@@ -29,8 +29,8 @@ class Nutrients(
 
     fun percentages(): List<String> {
         val nutrientEnergy = (values[1] + values[3]) * 4 + values[4] * 9
-        if (nutrientEnergy > 0) {
-            return listOf(
+        return if (nutrientEnergy > 0) {
+            listOf(
                 //*400/900 includes factor 100 for nice percentages (45% instead of 0.45)
                 (values[1] * 400 / nutrientEnergy).toProperString(false),
                 (values[2] * 400 / nutrientEnergy).toProperString(false),
@@ -38,20 +38,20 @@ class Nutrients(
                 (values[4] * 900 / nutrientEnergy).toProperString(false),
                 (values[5] * 900 / nutrientEnergy).toProperString(false),
             )
-        } else return listOf("0.00", "0.00", "0.00", "0.00", "0.00")
+        } else listOf("0.00", "0.00", "0.00", "0.00", "0.00")
     }
 
     companion object {
         fun fromStrings(values: List<String>, context: Context): Nutrients {
             val list: MutableList<Double> = mutableListOf()
-                values.forEachIndexed { index, value ->
-                    check(value.toDoubleOrNull() != null) {
-                        context.resources.getStringArray(R.array.nutrient_names)[index] + " " +
-                                context.getString(R.string.must_be_a_valid_number) + "."
-                    }
-                    if (index == NUTRIENT_PROPERTIES.size - 1) {list.add(value.toDouble().toCost().toDouble())}
-                    else {list.add(value.toDouble().toProperString(true).toDouble())}
+            values.forEachIndexed { index, value ->
+                check(value.toDoubleOrNull() != null) {
+                    context.resources.getStringArray(R.array.nutrient_names)[index] + " " +
+                            context.getString(R.string.must_be_a_valid_number) + "."
                 }
+                if (index == NUTRIENT_PROPERTIES.size - 1) {list.add(value.toDouble().toCost().toDouble())}
+                else {list.add(value.toDouble().toProperString(true).toDouble())}
+            }
             return Nutrients(
                 list.toMutableStateList(),
                 context = context

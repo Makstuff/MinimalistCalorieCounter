@@ -2,7 +2,7 @@ package com.makstuff.minimalistcaloriecounter.classes
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateListOf
-import com.example.nutricalc.R
+import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NUTRIENTS_LOWER
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NUTRIENTS_UPPER
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
@@ -91,7 +91,7 @@ data class Archive(
     fun updateAverageNutrients() {
         var tempNutrients = Nutrients(context = context)
         var noOfEntries = 0
-        entries.forEach { it ->
+        entries.forEach {
             tempNutrients = tempNutrients.plus(it.third, context)
             noOfEntries++
         }

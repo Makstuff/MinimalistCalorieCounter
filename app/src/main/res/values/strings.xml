@@ -1,6 +1,9 @@
 <resources>
     <string name="always_english">English</string>
     <string name="always_german">German</string>
+    <string name="always_french">French</string>
+    <string name="always_italian">Italian</string>
+    <string name="always_spanish">Spanish</string>
     <string name="app_name">Minimalist Calorie Counter</string>
     <string name="archive">Archive</string>
     <string name="body_weight">Body weight</string>
@@ -24,7 +27,7 @@
     <string name="button_save_new_weight">Save new weight</string>
     <string name="button_turn_day_to_archive_entry">Turn Day to Archive Entry</string>
     <string name="button_turn_to_archive_entry">Turn to Archive Entry</string>
-    <string name="button_turn_to_database_entry">Turn to Data-\nbase Entry</string>
+    <string name="button_turn_to_database_entry">Turn to Database Entry</string>
     <string name="carbohydrate_protein_fat_combined">Carbohydrate, protein, fat and fiber combined can\'t weigh more than 100g.</string>
     <string name="carbohydrates_include_sugar">Carbohydrates include sugar, so sugar can\'t weigh more.</string>
     <string name="choose_language">Choose language</string>
@@ -65,7 +68,8 @@
     <string name="import_successful">Import successful.</string>
     <string name="is_in_quickselect">In Quickselect</string>
     <string name="is_invalid">is invalid</string>
-    <string name="must_be_a_valid_number">must be a valid number.</string>
+    <string name="legend">Food name</string>
+    <string name="must_be_a_valid_number">must be a valid number</string>
     <string name="must_be_larger_than">must be larger than</string>
     <string name="must_be_smaller_than">must be smaller than</string>
     <string name="name">Name</string>
@@ -76,6 +80,7 @@
     <string name="overall_weight">Overall weight</string>
     <string name="quickselect_value_">Quickselect value can only be \"y\" or \"n\".</string>
     <string name="recipe">Recipe</string>
+    <string name="recipename">Recipe name</string>
     <string name="sum_if_empty">sum if empty</string>
     <string name="system_default">System default</string>
     <string name="title_add_food_to_day">Add Food to Day</string>

@@ -1,0 +1,127 @@
+<resources>
+    <string name="always_english">Inglese</string>
+    <string name="always_german">Tedesco</string>
+    <string name="always_french">Francés</string>
+    <string name="always_italian">Italiano</string>
+    <string name="always_spanish">Español</string>
+    <string name="app_name">Contacalorie Minimalista</string>
+    <string name="archive">Archivio</string>
+    <string name="body_weight">Peso corporeo</string>
+    <string name="button_add_food">Aggiungi cibo</string>
+    <string name="button_add_ingredient">Aggiungi ingrediente</string>
+    <string name="button_add_to_day">Aggiungi al giorno</string>
+    <string name="button_add_to_recipe">Aggiungi alla ricetta</string>
+    <string name="button_back">Indietro</string>
+    <string name="button_cancel">Annulla</string>
+    <string name="button_clear_input">Cancella input</string>
+    <string name="button_clear_recipe">Ripristina</string>
+    <string name="button_confirm">Conferma</string>
+    <string name="button_continue">Continua</string>
+    <string name="button_create">Crea</string>
+    <string name="button_create_entry_manually">Crea voce archivio manualmente</string>
+    <string name="button_create_new_archive_entry">Crea</string>
+    <string name="button_delete">Elimina</string>
+    <string name="button_edit">Modifica</string>
+    <string name="button_reset_day">Ripristina</string>
+    <string name="button_save_changes">Salva modifiche</string>
+    <string name="button_save_new_weight">Salva nuovo peso</string>
+    <string name="button_turn_day_to_archive_entry">Trasforma giorno in voce archivio</string>
+    <string name="button_turn_to_archive_entry">Trasforma in voce archivio</string>
+    <string name="button_turn_to_database_entry">Trasforma in voce database</string>
+    <string name="carbohydrate_protein_fat_combined">Carboidrati, proteine, grassi e fibre combinati non possono pesare più di 100 g.</string>
+    <string name="carbohydrates_include_sugar">I carboidrati includono lo zucchero, quindi lo zucchero non può pesare di più.</string>
+    <string name="choose_language">Scegli lingua</string>
+    <string name="combine">Ricetta</string>
+    <string name="csv_wrong_number_fields">Il CSV ha un numero errato di campi.</string>
+    <string name="custom_weights">Pesi personalizzati</string>
+    <string name="custom_weights_example">es: \"55:1 Cucchiaio-110:2 Cucchiai\"</string>
+    <string name="custom_weights_format">I pesi personalizzati devono essere nel formato \"numero:nome-number:nome…?\"</string>
+    <string name="dark_mode">Modalità scura</string>
+    <string name="database">Database</string>
+    <string name="database_navbar">Dati</string>
+    <string name="date">Data</string>
+    <string name="date_pattern_long">d MMMM y</string>
+    <string name="date_pattern_short">dd MMM</string>
+    <string name="day">Giorno</string>
+    <string name="dialog_archive_clear">Stai per eliminare tutte le tue voci di archivio. Questa azione è permanente e irreversibile.</string>
+    <string name="dialog_archive_import">L\'importazione di un file di archivio sovrascrive il vecchio file in ogni caso, anche se il nuovo file potrebbe non essere valido.</string>
+    <string name="dialog_dangerous_action">Azione pericolosa</string>
+    <string name="dialog_database_import">L\'importazione di un file di database sovrascrive il vecchio file in ogni caso, anche se il nuovo file potrebbe non essere valido.</string>
+    <string name="dialog_database_reset">Stai per ripristinare il tuo database allo stato di fabbrica. Tutte le voci aggiunte andranno perse permanentemente.</string>
+    <string name="dialog_destructive_action">Azione distruttiva</string>
+    <string name="dialog_language">Se desideri cambiare anche la lingua delle voci predefinite del database, puoi ripristinare il database dopo aver cambiato lingua.</string>
+    <string name="dialog_reset_day">Questo eliminerà tutto il cibo nella tua giornata.</string>
+    <string name="dialog_reset_recipe">Questo eliminerà tutti gli ingredienti nella tua ricetta.</string>
+    <string name="dropdown_backup_archive">Esporta Archivio</string>
+    <string name="dropdown_backup_database">Esporta Database</string>
+    <string name="dropdown_clear_archive">Cancella Archivio</string>
+    <string name="dropdown_github">Github (include guida)</string>
+    <string name="dropdown_import_archive">Importa Archivio</string>
+    <string name="dropdown_import_database">Importa Database</string>
+    <string name="dropdown_reset_database">Ripristina Database</string>
+    <string name="entry_from_empty_recipe">Impossibile creare una voce di database da una ricetta vuota.</string>
+    <string name="example_recipe_name">es: \"Stufato\"</string>
+    <string name="fat_includes_saturated_fat">I grassi includono i grassi saturi, quindi i grassi saturi non possono pesare di più.</string>
+    <string name="food">Cibo</string>
+    <string name="food_name_example">es: \"Mela\"</string>
+    <string name="import_failed">Importazione fallita.</string>
+    <string name="import_successful">Importazione riuscita.</string>
+    <string name="is_in_quickselect">In selezione rapida</string>
+    <string name="is_invalid">non è valido</string>
+    <string name="legend">Nome cibo</string>
+    <string name="must_be_a_valid_number">deve essere un numero valido</string>
+    <string name="must_be_larger_than">deve essere maggiore di</string>
+    <string name="must_be_smaller_than">deve essere minore di</string>
+    <string name="name">Nome</string>
+    <string name="name_cant_be_empty">Il nome non può essere vuoto.</string>
+    <string name="name_capital_letter">Il nome deve iniziare con una lettera maiuscola (A-Z).</string>
+    <string name="name_no_commas">Il nome non può includere virgole o interruzioni di riga.</string>
+    <string name="options">Opzioni</string>
+    <string name="overall_weight">Peso totale</string>
+    <string name="quickselect_value_">Il valore della selezione rapida può essere solo \"y\" o \"n\".</string>
+    <string name="recipe">Ricetta</string>
+    <string name="recipename">Nome ricetta</string>
+    <string name="sum_if_empty">somma se vuoto</string>
+    <string name="system_default">Predefinito di sistema</string>
+    <string name="title_add_food_to_day">Aggiungi cibo al giorno</string>
+    <string name="title_add_ingredient_to_recipe">Aggiungi ingrediente alla ricetta</string>
+    <string name="title_create_new_archive_entry">Crea nuova voce archivio</string>
+    <string name="title_create_new_database_entry">Crea nuova voce database</string>
+    <string name="title_edit_archive_entry">Modifica voce archivio</string>
+    <string name="title_edit_database_entry">Modifica voce database</string>
+    <string name="title_edit_food_in_day">Modifica cibo del giorno</string>
+    <string name="title_edit_weight_of">Modifica il peso di</string>
+    <string name="title_enter_body_weight">Inserisci peso corporeo</string>
+    <string name="title_enter_weight_of">Inserisci peso di</string>
+    <string name="title_ingredients_of_recipe">Ingredienti della ricetta</string>
+    <string name="title_pick_food">Scegli cibo</string>
+    <string name="title_pick_ingredient">Scegli ingrediente</string>
+    <string name="weight">Peso</string>
+    <string name="weight_of_food">Peso del cibo</string>
+    <string name="weight_of_ingredient">Peso dell\'ingrediente</string>
+    <string-array name="dark_mode_options">
+        <item>Predefinito di sistema</item>
+        <item>Chiaro</item>
+        <item>Scuro</item>
+    </string-array>
+    <string-array name="nutrient_names">
+        <item>Energia</item>
+        <item>Carboidrati</item>
+        <item>Zucchero</item>
+        <item>Proteine</item>
+        <item>Grassi</item>
+        <item>Grassi saturi</item>
+        <item>Fibre</item>
+        <item>Costo</item>
+    </string-array>
+    <string-array name="nutrient_names_short">
+        <item>Energ.</item>
+        <item>Carb.</item>
+        <item>Zucch.</item>
+        <item>Prot.</item>
+        <item>Grass.</item>
+        <item>Gr. Sat</item>
+        <item>Fibre</item>
+        <item>Costo</item>
+    </string-array>
+</resources>

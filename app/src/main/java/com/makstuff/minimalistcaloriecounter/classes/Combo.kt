@@ -2,7 +2,7 @@ package com.makstuff.minimalistcaloriecounter.classes
 
 import android.content.Context
 import androidx.compose.runtime.mutableStateListOf
-import com.example.nutricalc.R
+import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_QUICKSELECT
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
 import com.makstuff.minimalistcaloriecounter.essentials.toProperString
@@ -55,7 +55,7 @@ data class Combo(
                 listOf(it.first.toProperString(true)) +
                         listOf(it.second.name) + it.second.nutrients.stringValues(true) +
                         listOf(it.second.customWeights.inputString) +
-                        listOf(if (it.second.quickselect == true) "y" else "n")
+                        listOf(if (it.second.quickselect) "y" else "n")
             )
         }
         return list

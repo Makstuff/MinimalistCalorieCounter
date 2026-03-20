@@ -1,10 +1,15 @@
 package com.makstuff.minimalistcaloriecounter.essentials
 
 import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
-import com.example.nutricalc.R
+import androidx.navigation.compose.currentBackStackEntryAsState
+import com.makstuff.minimalistcaloriecounter.R
 
-fun navControllerListener(
+@Composable
+fun NavControllerListener(
     nameFoodCombineAdd: String,
     nameFoodCombineEdit: String,
     nameFoodDayAdd: String,
@@ -13,8 +18,11 @@ fun navControllerListener(
     setNav: (String, NavButton) -> Unit,
     context: Context
 ) {
-    navController.addOnDestinationChangedListener { _, destination, _ ->
-        when (destination.route) {
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    LaunchedEffect(currentRoute, nameFoodCombineAdd, nameFoodCombineEdit, nameFoodDayAdd, nameFoodDayEdit) {
+        when (currentRoute) {
             "day_home" ->
                 setNav(context.getString(R.string.title_add_food_to_day), DAY)
 
