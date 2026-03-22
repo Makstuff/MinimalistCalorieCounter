@@ -52,8 +52,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.review.testing.FakeReviewManager
 import com.makstuff.minimalistcaloriecounter.classes.Nutrients
 import com.makstuff.minimalistcaloriecounter.essentials.ALPHABET
 import com.makstuff.minimalistcaloriecounter.essentials.ARCHIVE
@@ -98,7 +96,7 @@ fun App(
     navController: NavHostController = rememberNavController()
 ) {
     val context = LocalContext.current
-    val activity = context.findActivity() // Use the proper unwrap function!
+    context.findActivity() // Use the proper unwrap function!
     val uriHandler = LocalUriHandler.current
     fun navTo(route: String) {
         navController.navigate(route)
@@ -427,40 +425,18 @@ fun App(
                                 } },
                             DropdownMenuItemData(stringResource(R.string.dropdown_rate)) {
                                 val appId = "com.makstuff.minimalistcaloriecounter"
-                                val fallbackToPlayStore = {
-                                    val intent = Intent(Intent.ACTION_VIEW).apply {
-                                        data = "market://details?id=$appId".toUri()
-                                        setPackage("com.android.vending")
-                                    }
-                                    try {
-                                        context.startActivity(intent)
-                                    } catch (_: ActivityNotFoundException) {
-                                        uriHandler.openUri("https://play.google.com/store/apps/details?id=$appId")
-                                    }
+
+                                val intent = Intent(Intent.ACTION_VIEW).apply {
+                                    data = "market://details?id=$appId".toUri()
+                                    setPackage("com.android.vending")
                                 }
-                                if (activity != null) {
-                                    // Use FakeReviewManager locally so you can see it work!
-                                    val reviewManager = if (BuildConfig.DEBUG) {
-                                        FakeReviewManager(context)
-                                    } else {
-                                        ReviewManagerFactory.create(context)
-                                    }
-                                    val request = reviewManager.requestReviewFlow()
-                                    request.addOnCompleteListener { task ->
-                                        if (task.isSuccessful) {
-                                            val reviewInfo = task.result
-                                            val flow = reviewManager.launchReviewFlow(activity, reviewInfo)
-                                            flow.addOnCompleteListener { _ ->
-                                                Toast.makeText(context, "Fake Review Triggered Successfully!", Toast.LENGTH_SHORT).show()
-                                            }
-                                        } else {
-                                            fallbackToPlayStore()
-                                        }
-                                    }
-                                } else {
-                                    fallbackToPlayStore()
+
+                                try {
+                                    context.startActivity(intent)
+                                } catch (_: ActivityNotFoundException) {
+                                    uriHandler.openUri("https://play.google.com/store/apps/details?id=$appId")
                                 }
-                            },
+                            }
                         )
                     )
                 }
