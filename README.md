@@ -10,12 +10,15 @@ I hope that despite all that, this app will find its niche in the Play Store uni
 
 Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear. Please let me know if you feel anything essential is missing.
 
-- If you often eat the same amount of a certain food, you can add a set of "custom weights" to make these weights available with just one click. To add these to an existing Entry, click on it in the Database, fill in the bottom field with the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and save the changes. For your most-eaten foods, you can even flip the Quickselect switch there, which will make them appear directly on the homescreens for a simple one-click add.
+- You can make your most-eaten foods appear directly on the homescreen, so you can add them with a single click. Find them in the Database, click on them, flip the "Easy Access" switch and press "Save changes".
+- If you often eat the same amount of a certain food, below the Easy Access switch you can also add a set of "quickselect weights" to make these weights available with just one click below the normal weight buttons (note that they take up two columns to allow space for slightlylonger names).  Fill in the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and press "Save changes".
+- You can long-press the Easy Access buttons on the "Day" and "Recipe" screens to go directly to their edit page.
+- You can repeatedly press the "Day" button in the navigation bar to switch between the "Add" and "Edit" modes even faster.
 - When creating a recipe, you can leave the "Overall weight" empty if you want to use the sum of ingredient weights, which is then calculated automatically.
 - If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
-- Repeatedly pressing the "Day" button in the bottom bar switches back and forth between "Add" and "Edit".
 - In the input screens with multiple text fields, in most of them the "Enter" key on the keyboard is replaced by a "Next" key that allows you to directly jump to the next text field. On the last text field there is a "Checkmark" key instead that acts as an alternate confirm button.
 - If you do not like the provided standard database, you can import [database_empty.csv](https://github.com/Makstuff/MinimalistCalorieCounter/blob/9da0ef3786e6f7f54b71d335681c2f8e5c225166/database_empty.csv) to clear out everything.
+- In case you have trouble with the *.csv import, check out the default files [here](https://github.com/Makstuff/MinimalistCalorieCounter/tree/3cd6049b0cee640e6fdbafbaff69f8ea3e6b145c/app/src/main/res/raw) and make sure yours look exactly the same and avoid Especially certain illegal symbols (";|,) like a sneaky comma in "3,5% whole milk" can be quite hard to find, and the in-app error messages due to my lack of skill are not overly specific.
 - Note that I used Gemini for the French, Italian and Spanish translations. More than anything this was an experiment if people are interested in more translations at all. If there is some nonsense in the translated files somewhere, please let me know here or at message.makstuff@outlook.com.
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
@@ -26,7 +29,7 @@ Unfortunately, through much of the development of this app, I was not aware how 
 
 ## Screenshots
 
-![Combo](https://github.com/user-attachments/assets/2e55b58c-ec86-4d46-a52f-e3ec76e18c82)
+![Combo](https://github.com/user-attachments/assets/fe823df8-814a-4ebe-8026-e3526f95ffc5")
 
 <a href='https://play.google.com/store/apps/details?id=com.makstuff.minimalistcaloriecounter&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/></a>
 
