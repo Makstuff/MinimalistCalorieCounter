@@ -11,28 +11,12 @@ I hope that despite all that, this app will find its niche in the Play Store uni
 Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear. Please let me know if you feel anything essential is missing.
 
 - If you often eat the same amount of a certain food, you can add a set of "custom weights" to make these weights available with just one click. To add these to an existing Entry, click on it in the Database, fill in the bottom field with the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and save the changes. For your most-eaten foods, you can even flip the Quickselect switch there, which will make them appear directly on the homescreens for a simple one-click add.
-- I couldn't think of a clever way to label all the nutrient numbers in the scrollable lists, so I decided to just leave them out and have the user memorize their order instead, which is given below. Note that in the Database view, these values are per `100g`, but anywhere else they are already multiplied by the respective weight.
-```
-              Carbohydrate [g]               Fat [g]
-Energy [kcal                    Protein [g]                     Fiber [g]  Cost [€]
-              Sugar [g]                      Saturated fat [g]            
-```
-- You can long-press Database, Day and Recipe Entries to instantly delete them. I should mention that I didn't add this functionality for Archive Entries because I felt it would not really be needed and potentially cause accidental deletions. To delete single Archive Entries, short-press them and then use the "Delete" button at the bottom. To delete all Archive Entries, use "Clear Archive" in the Options menu.
-- You can long-press Quickselect Panels to instantly disable Quickselect for this Database Entry, without deleting it completely. To ENABLE Quickselect, click on the Entry in the Database view, enable the Quickselect switch and press "Save Changes".
+- When creating a recipe, you can leave the "Overall weight" empty if you want to use the sum of ingredient weights, which is then calculated automatically.
 - If you want to use the Starting Database in another language than the app itself, you can set the app to the language you want the Database to be in, reset the Database, then set the app back to the language you want for the app. As long as you don't reset the Database again, it will keep its language.
+- Repeatedly pressing the "Day" button in the bottom bar switches back and forth between "Add" and "Edit".
 - In the input screens with multiple text fields, in most of them the "Enter" key on the keyboard is replaced by a "Next" key that allows you to directly jump to the next text field. On the last text field there is a "Checkmark" key instead that acts as an alternate confirm button.
 - If you do not like the provided standard database, you can import [database_empty.csv](https://github.com/Makstuff/MinimalistCalorieCounter/blob/9da0ef3786e6f7f54b71d335681c2f8e5c225166/database_empty.csv) to clear out everything.
-
-## Support
-
-Please don't hesitate to report even tiny bugs like spelling mistakes, and especially crashes. I have put in a lot of effort to make crashing the app pretty much impossible, but I am pretty sure I must have missed a few little things here and there.
-
-I also would very much appreciate help with translations, as I am only able to provide English and German myself. The two files that would need to be translated are
-
-- the [App content](https://github.com/Makstuff/MinimalistCalorieCounter/blob/86285a07f2e8d764a30f6240634d18be67476d6b/app/src/main/res/values/strings.xml) and
-- the [Starting Database](https://github.com/Makstuff/MinimalistCalorieCounter/blob/1b401b534dda54ebaec0f2cc5db30fb2c8f58ef1/app/src/main/res/raw/database.csv).
-
-I'd guess for someone who's a little familiar with the app already, it would take around 1h overall. If you are willing to help out, you can either submit a pull-request or just open an issue on here on GitHub.
+- Note that I used Gemini for the French, Italian and Spanish translations. More than anything this was an experiment if people are interested in more translations at all. If there is some nonsense in the translated files somewhere, please let me know here or at message.makstuff@outlook.com.
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
 
@@ -42,7 +26,7 @@ Unfortunately, through much of the development of this app, I was not aware how 
 
 ## Screenshots
 
-![Combo](https://github.com/Makstuff/MinimalistCalorieCounter/assets/57408125/48908d2c-10d4-4b01-91a2-13dba96b1026)
+![Combo](https://github.com/user-attachments/assets/2e55b58c-ec86-4d46-a52f-e3ec76e18c82)
 
 <a href='https://play.google.com/store/apps/details?id=com.makstuff.minimalistcaloriecounter&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="200"/></a>
 
