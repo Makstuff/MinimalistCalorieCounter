@@ -55,7 +55,7 @@ fun ScreenEnterWeightOfFood(
             Grid(
                 columns = 6,
                 reverseUpDown = false,
-                reverseLeftRight = true,
+                reverseLeftRight = false,
                 items = listOfItems
             )
             if (listOfQSItems.isNotEmpty()) {
