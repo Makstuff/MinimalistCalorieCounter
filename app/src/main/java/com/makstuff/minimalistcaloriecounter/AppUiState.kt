@@ -1,5 +1,8 @@
 package com.makstuff.minimalistcaloriecounter
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import com.makstuff.minimalistcaloriecounter.classes.Archive
@@ -12,6 +15,15 @@ import com.makstuff.minimalistcaloriecounter.ui.theme.AppTheme
 import java.time.LocalDate
 import java.time.LocalDateTime
 
+
+fun Context.findActivity(): Activity? {
+    var currentContext = this
+    while (currentContext is ContextWrapper) {
+        if (currentContext is Activity) return currentContext
+        currentContext = currentContext.baseContext
+    }
+    return null
+}
 data class AppUiState(
     //Deprecated
     val gridButtons: MutableList<GridButtonData> = mutableStateListOf(),
@@ -91,6 +103,6 @@ data class AppUiState(
     val alertDialogRecipeReset: Boolean = false,
     val alertDialogDayReset: Boolean = false,
     val dialogLanguage: Boolean = false,
+    val dialogLanguageInfo: Boolean = false,
 
 )
-

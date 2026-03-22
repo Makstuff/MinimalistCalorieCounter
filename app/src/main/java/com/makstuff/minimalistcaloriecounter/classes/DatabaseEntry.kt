@@ -18,7 +18,7 @@ data class DatabaseEntry(
     val context: Context,
 ) {
     init {
-        checkName(name)
+        checkName(name, context)
         nutrients.values.forEachIndexed { index, value ->
             checkDoubleRange(
                 value,
@@ -49,20 +49,20 @@ data class DatabaseEntry(
                 context = context
             )
         }
+
+        fun checkName(name: String, context: Context) {
+            check(name != "") { context.getString(R.string.name_cant_be_empty) }
+            check(Regex("""^[A-Z]""").containsMatchIn(name)) {
+                context.getString(R.string.name_capital_letter)
+            }
+            check(Regex("""^[^\n\r,]*$""").containsMatchIn(name)) {
+                context.getString(R.string.name_no_commas)
+            }
+        }
     }
 
     val stringCSV =
         listOf(name) + nutrients.stringValues(true) + listOf(customWeights.inputString) + listOf(if (quickselect) "y" else "n")
-
-    private fun checkName(name: String) {
-        check(name != "") { context.getString(R.string.name_cant_be_empty) }
-        check(Regex("""^[A-Z]""").containsMatchIn(name)) {
-            context.getString(R.string.name_capital_letter)
-        }
-        check(Regex("""^[^\n\r,]*$""").containsMatchIn(name)) {
-            context.getString(R.string.name_no_commas)
-        }
-    }
 
     private fun checkDoubleRange(
         number: Double,

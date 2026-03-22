@@ -68,6 +68,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun databaseCreateEntryFromInput(context: Context) {
+        // Prioritize name check
+        DatabaseEntry.checkName(uiState.value.inputDatabaseEntryCreateName, context)
+        
         databaseAddEntry(
             context,
             true,
@@ -144,6 +147,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
 
     fun databaseEditEntryFromInput(indexToDelete: Int, context: Context) {
+        // Prioritize name check
+        DatabaseEntry.checkName(uiState.value.inputDatabaseEntryEditName, context)
+        
         databaseDeleteEntry(indexToDelete, false, context)
         databaseAddEntry(
             context,
@@ -394,6 +400,13 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _uiState.update { currentState ->
             currentState.copy(
                 dialogLanguage = bool
+            )
+        }
+    }
+    fun setDialogLanguageInfo(bool: Boolean){
+        _uiState.update { currentState ->
+            currentState.copy(
+                dialogLanguageInfo = bool
             )
         }
     }

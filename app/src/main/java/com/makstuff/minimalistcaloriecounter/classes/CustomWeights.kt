@@ -11,7 +11,7 @@ class CustomWeights(
 
     init {
         check(
-            inputString == "" || Regex("""^\d+(\.\d+)?:[\w ]+(-\d+(\.\d+)?:[\w ]+)*$""").containsMatchIn(
+            inputString == "" || Regex("""^\d+(\.\d+)?:[^\n\r,:-]+(-\d+(\.\d+)?:[^\n\r,:-]+)*$""").containsMatchIn(
                 inputString
             )
         ) {

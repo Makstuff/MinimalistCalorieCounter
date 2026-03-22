@@ -53,17 +53,19 @@ fun ScreenEnterWeightOfFood(
         }
         Column {
             Grid(
-                columns = 3,
-                reverseUpDown = true,
-                reverseLeftRight = true,
-                items = listOfQSItems
-            )
-            Grid(
                 columns = 6,
                 reverseUpDown = false,
-                reverseLeftRight = false,
+                reverseLeftRight = true,
                 items = listOfItems
             )
+            if (listOfQSItems.isNotEmpty()) {
+                Grid(
+                    columns = 3,
+                    reverseUpDown = true,
+                    reverseLeftRight = true,
+                    items = listOfQSItems
+                )
+            }
         }
     }
 }

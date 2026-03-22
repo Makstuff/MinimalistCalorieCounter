@@ -1,9 +1,9 @@
 <resources>
-    <string name="always_english">Inglés</string>
-    <string name="always_german">Alemán</string>
-    <string name="always_french">Francés</string>
-    <string name="always_italian">Italiano</string>
-    <string name="always_spanish">Español</string>
+    <string name="always_english">Inglés (English)</string>
+    <string name="always_german">Alemán (German)</string>
+    <string name="always_french">Francés (French)</string>
+    <string name="always_italian">Italiano (Italian)</string>
+    <string name="always_spanish">Español (Spanish)</string>
     <string name="app_name">Contador de Calorías Minimalista</string>
     <string name="archive">Archivo</string>
     <string name="body_weight">Peso corporal</string>
@@ -28,14 +28,14 @@
     <string name="button_turn_day_to_archive_entry">Convertir día en entrada de archivo</string>
     <string name="button_turn_to_archive_entry">Convertir en\nentrada de archivo</string>
     <string name="button_turn_to_database_entry">Convertir en entrada\nde base de datos</string>
-    <string name="carbohydrate_protein_fat_combined">Los carbohidratos, proteínas, grasas y fibra combinados no pueden pesar más de 100 g.</string>
+    <string name="carbohydrate_protein_fat_combined">Carbos, proteínas, grasas y fibra no deben superar 100g.</string>
     <string name="carbohydrates_include_sugar">Los carbohidratos incluyen el azúcar, por lo que el azúcar no puede pesar más.</string>
-    <string name="choose_language">Elegir idioma</string>
+    <string name="choose_language">Idioma (Language)</string>
     <string name="combine">Receta</string>
     <string name="csv_wrong_number_fields">El CSV tiene un número incorrecto de campos.</string>
-    <string name="custom_weights">Pesos personalizados</string>
+    <string name="custom_weights">Pesos frecuentes</string>
     <string name="custom_weights_example">ej: \"55:1 Cucharada-110:2 Cucharadas\"</string>
-    <string name="custom_weights_format">Los pesos personalizados deben tener el formato \"número:nombre-número:nombre…?\"</string>
+    <string name="custom_weights_format">Pesos frecuentes: \"número:nombre-número:nombre…\".</string>
     <string name="dark_mode">Modo oscuro</string>
     <string name="database">Base de datos</string>
     <string name="database_navbar">Datos</string>
@@ -49,24 +49,24 @@
     <string name="dialog_database_import">Importar un archivo de base de datos sobrescribe el archivo antiguo en cualquier caso, incluso si el nuevo archivo no es válido.</string>
     <string name="dialog_database_reset">Estás a punto de restablecer tu base de datos al estado de fábrica. Todas las entradas añadidas se perderán permanentemente.</string>
     <string name="dialog_destructive_action">Acción destructiva</string>
-    <string name="dialog_language">Si también deseas cambiar el idioma de las entradas de la base de datos predeterminadas, puedes restablecer la base de datos después de cambiar el idioma.</string>
+    <string name="dialog_language">Si también desea cambiar el idioma de la base de datos, ahora puede restablecer la base de datos utilizando la opción \"%1$s\". Tenga en cuenta que esto cargará la base de datos predeterminada en el idioma actual, y todas las entradas que añadió en el idioma anterior se perderán permanentemente.</string>
     <string name="dialog_reset_day">Esto eliminará toda la comida de tu día.</string>
     <string name="dialog_reset_recipe">Esto eliminará todos los ingredientes de tu receta.</string>
     <string name="dropdown_backup_archive">Exportar Archivo</string>
     <string name="dropdown_backup_database">Exportar Base de datos</string>
     <string name="dropdown_clear_archive">Borrar Archivo</string>
-    <string name="dropdown_github">Github (incluye guía)</string>
+    <string name="dropdown_github">GitHub (incluye guía)</string>
     <string name="dropdown_import_archive">Importar Archivo</string>
     <string name="dropdown_import_database">Importar Base de datos</string>
     <string name="dropdown_reset_database">Restablecer Base de datos</string>
     <string name="entry_from_empty_recipe">No se puede crear una entrada de base de datos desde una receta vacía.</string>
     <string name="example_recipe_name">ej: \"Estofado\"</string>
-    <string name="fat_includes_saturated_fat">Las grasas incluyen grasas saturadas, por lo que las grasas saturadas no pueden pesar más.</string>
+    <string name="fat_includes_saturated_fat">Grasas saturadas no deben superar las grasas totales.</string>
     <string name="food">Comida</string>
     <string name="food_name_example">ej: \"Manzana\"</string>
     <string name="import_failed">Error en la importación.</string>
     <string name="import_successful">Importación exitosa.</string>
-    <string name="is_in_quickselect">En selección rápida</string>
+    <string name="is_in_quickselect">Acceso rápido</string>
     <string name="is_invalid">no es válido</string>
     <string name="legend">Nombre comida</string>
     <string name="must_be_a_valid_number">debe ser un número válido</string>
@@ -74,21 +74,21 @@
     <string name="must_be_smaller_than">debe ser menor que</string>
     <string name="name">Nombre</string>
     <string name="name_cant_be_empty">El nombre no puede estar vacío.</string>
-    <string name="name_capital_letter">El nombre debe comenzar con una letra mayúscula (A-Z).</string>
+    <string name="name_capital_letter">El nombre debe empezar con mayúscula (A-Z, sin acentos).</string>
     <string name="name_no_commas">El nombre no puede incluir comas ni saltos de línea.</string>
     <string name="options">Opciones</string>
     <string name="overall_weight">Peso total</string>
-    <string name="quickselect_value_">El valor de selección rápida solo puede ser \"y\" o \"n\".</string>
+    <string name="quickselect_value_">\"Quickselect\" solo puede ser \"y\" o \"n\".</string>
     <string name="recipe">Receta</string>
     <string name="recipename">Nombre receta</string>
     <string name="sum_if_empty">suma si está vacío</string>
-    <string name="system_default">Predeterminado del sistema</string>
+    <string name="system_default">Predeterminado del sistema\n(System default)</string>
     <string name="title_add_food_to_day">Añadir comida al día</string>
-    <string name="title_add_ingredient_to_recipe">Añadir ingrediente a la receta</string>
-    <string name="title_create_new_archive_entry">Crear nueva entrada de archivo</string>
-    <string name="title_create_new_database_entry">Crear nueva entrada de base de datos</string>
+    <string name="title_add_ingredient_to_recipe">Añadir ingrediente</string>
+    <string name="title_create_new_archive_entry">Crear entrada de archivo</string>
+    <string name="title_create_new_database_entry">Crear entrada de datos</string>
     <string name="title_edit_archive_entry">Editar entrada de archivo</string>
-    <string name="title_edit_database_entry">Editar entrada de base de datos</string>
+    <string name="title_edit_database_entry">Editar entrada de datos</string>
     <string name="title_edit_food_in_day">Editar comida del día</string>
     <string name="title_edit_weight_of">Editar peso de</string>
     <string name="title_enter_body_weight">Introducir peso corporal</string>
@@ -100,7 +100,7 @@
     <string name="weight_of_food">Peso de la comida</string>
     <string name="weight_of_ingredient">Peso del ingrediente</string>
     <string-array name="dark_mode_options">
-        <item>Predeterminado del sistema</item>
+        <item>Sistema</item>
         <item>Claro</item>
         <item>Oscuro</item>
     </string-array>
@@ -124,4 +124,8 @@
         <item>Fibra</item>
         <item>Costo</item>
     </string-array>
+    <string name="report_problem">Contactar al desarrollador</string>
+    <string name="button_understood">Entiendo</string>
+    <string name="database_language">Idioma de la base de datos</string>
+    <string name="dropdown_rate">Calificar en Play Store 🙏❤️</string>
 </resources>

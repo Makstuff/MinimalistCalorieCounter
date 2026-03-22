@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 
 data class DropdownMenuItemData(
     val text: String,
+    val dismissOnClick: Boolean = true, // Default to true for most items
     val onClick: () -> Unit,
 )
 

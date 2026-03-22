@@ -8,10 +8,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.classes.Nutrients
 import com.makstuff.minimalistcaloriecounter.ui.reused.RowOfButtonText
@@ -29,8 +36,9 @@ fun ScreenWithHoverCard(
         Column(
             Modifier
                 .fillMaxWidth()
-                .padding(4.dp)
-        ) {
+                .padding(top=0.dp, bottom=4.dp, start=4.dp, end=4.dp),
+            horizontalAlignment = Alignment.CenterHorizontally)
+        {
             contentAbove()
             val nutrientValues = nutrients.stringValues(false)
             val nutrientPercentages = nutrients.percentages()
@@ -43,10 +51,18 @@ fun ScreenWithHoverCard(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.Bottom
                 ) {
-                    TextOneLine(
+                    Text(
                         modifier = Modifier.weight(8f).alignByBaseline(),
-                        text = nutrientValues[0] + " kcal",
-                        style = MaterialTheme.typography.titleLarge
+                        style = MaterialTheme.typography.bodySmall,
+                        textAlign = TextAlign.Center,
+                        text = buildAnnotatedString {
+                            withStyle(style = SpanStyle(fontSize = 32.sp)) {
+                                append(nutrientValues[0]+" ")
+                            }
+                            append("kcal")
+                        },
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1,
                     )
                     TextOneLine(
                         modifier = Modifier.weight(3f).alignByBaseline(),

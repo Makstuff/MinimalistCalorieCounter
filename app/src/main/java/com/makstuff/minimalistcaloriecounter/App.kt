@@ -1,16 +1,20 @@
 package com.makstuff.minimalistcaloriecounter
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
@@ -28,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.toMutableStateList
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalContext
@@ -37,13 +42,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
+import androidx.core.net.toUri
 import androidx.core.os.LocaleListCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.testing.FakeReviewManager
 import com.makstuff.minimalistcaloriecounter.classes.Nutrients
 import com.makstuff.minimalistcaloriecounter.essentials.ALPHABET
 import com.makstuff.minimalistcaloriecounter.essentials.ARCHIVE
@@ -52,30 +62,29 @@ import com.makstuff.minimalistcaloriecounter.essentials.CREATE
 import com.makstuff.minimalistcaloriecounter.essentials.DATABASE
 import com.makstuff.minimalistcaloriecounter.essentials.DAY
 import com.makstuff.minimalistcaloriecounter.essentials.GENERAL_WEIGHTS
-import com.makstuff.minimalistcaloriecounter.essentials.NavButton
 import com.makstuff.minimalistcaloriecounter.essentials.NavControllerListener
+import com.makstuff.minimalistcaloriecounter.essentials.NavButton
 import com.makstuff.minimalistcaloriecounter.essentials.toBodyWeight
 import com.makstuff.minimalistcaloriecounter.essentials.toProperString
-import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenWithHoverCard
-import com.makstuff.minimalistcaloriecounter.ui.reused.TileIngredient
+import com.makstuff.minimalistcaloriecounter.ui.reused.ButtonGrid
+import com.makstuff.minimalistcaloriecounter.ui.reused.ButtonText
 import com.makstuff.minimalistcaloriecounter.ui.reused.DropdownMenu
-import com.makstuff.minimalistcaloriecounter.ui.reused.DropdownMenuItem
 import com.makstuff.minimalistcaloriecounter.ui.reused.DropdownMenuItemData
 import com.makstuff.minimalistcaloriecounter.ui.reused.Grid
-import com.makstuff.minimalistcaloriecounter.ui.reused.ButtonGrid
 import com.makstuff.minimalistcaloriecounter.ui.reused.NavigationBar
 import com.makstuff.minimalistcaloriecounter.ui.reused.NavigationBarItem
 import com.makstuff.minimalistcaloriecounter.ui.reused.NavigationBarItemData
 import com.makstuff.minimalistcaloriecounter.ui.reused.ScrollColumn
-import com.makstuff.minimalistcaloriecounter.ui.reused.ButtonText
 import com.makstuff.minimalistcaloriecounter.ui.reused.TextField
 import com.makstuff.minimalistcaloriecounter.ui.reused.TileArchive
+import com.makstuff.minimalistcaloriecounter.ui.reused.TileIngredient
 import com.makstuff.minimalistcaloriecounter.ui.reused.TileLegendArchive
-import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenInputOrEditArchive
-import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenEnterWeightOfFood
 import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenDatabaseEntry
-import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenShowFoodSelection
+import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenEnterWeightOfFood
+import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenInputOrEditArchive
 import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenShowFoodAll
+import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenShowFoodSelection
+import com.makstuff.minimalistcaloriecounter.ui.screens.ScreenWithHoverCard
 import com.makstuff.minimalistcaloriecounter.ui.theme.AppTheme
 import kotlinx.coroutines.delay
 import java.io.File
@@ -89,6 +98,7 @@ fun App(
     navController: NavHostController = rememberNavController()
 ) {
     val context = LocalContext.current
+    val activity = context.findActivity() // Use the proper unwrap function!
     val uriHandler = LocalUriHandler.current
     fun navTo(route: String) {
         navController.navigate(route)
@@ -278,50 +288,64 @@ fun App(
                         uiState.dialogLanguage -> {
                             AlertDialog(
                                 onDismissRequest = {viewModel.setDialogLanguage(false)},
-                                title = {Text(stringResource(R.string.choose_language))},
-                                text = { Text(stringResource(R.string.dialog_language))},
+                                title  = {
+                                    // Centering the Title
+                                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                                    Text(stringResource(R.string.choose_language))
+                                    }
+                                                                                                                 },
                                 confirmButton = {
-                                    ButtonText(text = stringResource(R.string.always_english),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.forLanguageTags("en")
-
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-                                    ButtonText(text = stringResource(R.string.always_german),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.forLanguageTags("de")
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-                                    ButtonText(text = stringResource(R.string.always_french),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.forLanguageTags("fr")
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-                                    ButtonText(text = stringResource(R.string.always_italian),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.forLanguageTags("it")
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-                                    ButtonText(text = stringResource(R.string.always_spanish),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.forLanguageTags("es")
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-                                    ButtonText(text = stringResource(R.string.system_default),onClick= {
-                                        AppCompatDelegate.setApplicationLocales(
-                                            LocaleListCompat.getEmptyLocaleList()
-                                        )
-                                        viewModel.setDialogLanguage(false)
-                                    })
-
-                                },
-                                dismissButton = {}
+                                    Column(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalAlignment = Alignment.CenterHorizontally,
+                                        verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                                        ButtonText(text = stringResource(R.string.always_english), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en"))
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                        ButtonText(text = stringResource(R.string.always_german), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("de"))
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                        ButtonText(text = stringResource(R.string.always_french), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("fr"))
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                        ButtonText(text = stringResource(R.string.always_italian), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("it"))
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                        ButtonText(text = stringResource(R.string.always_spanish), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("es"))
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                        ButtonText(text = stringResource(R.string.system_default), onClick = {
+                                            AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+                                            viewModel.setDialogLanguage(false)
+                                            viewModel.setDialogLanguageInfo(true)
+                                        })
+                                    }
+                                }
                             )
+                        }}
+                    when {
+                        uiState.dialogLanguageInfo -> {
+                            AlertDialog(
+                                onDismissRequest = {viewModel.setDialogLanguageInfo(false)},
+                                properties = DialogProperties(
+                                    dismissOnClickOutside = false,
+                                    dismissOnBackPress = false
+                                ),
+                                confirmButton = { ButtonText(text = stringResource(R.string.button_understood),onClick= {
+                                    viewModel.setDialogLanguageInfo(false)
+                                })},
+                                text = { Text(stringResource(R.string.dialog_language,stringResource(R.string.dropdown_reset_database)))},
+                                title = {Text(stringResource(R.string.database_language))})
                         }}
                     when {
                         uiState.alertDialogDayReset -> {
@@ -366,7 +390,8 @@ fun App(
                                     AppTheme.MODE_AUTO -> stringArrayResource(R.array.dark_mode_options)[0]
                                     AppTheme.MODE_DAY -> stringArrayResource(R.array.dark_mode_options)[1]
                                     AppTheme.MODE_NIGHT -> stringArrayResource(R.array.dark_mode_options)[2]
-                                }
+                                },
+                                dismissOnClick = false
                             ) {
                                 viewModel.toggleDarkTheme(context)
                             },
@@ -390,14 +415,53 @@ fun App(
                             {
                                 viewModel.setAlertDialogArchiveReset(true)
                             },
-                        ).mapIndexed { index, it ->
-                            {
-                                DropdownMenuItem(text = it.text, onClick = {
-                                    it.onClick()
-                                    if (index != 0) viewModel.updateDropdownMenuVisible(false)
-                                })
+                            DropdownMenuItemData(stringResource(R.string.report_problem))
+                            { val intent = Intent(Intent.ACTION_SENDTO).apply {
+                                val uriString = "mailto:message.makstuff@outlook.com?subject=Minimalist Calorie Counter&body=🐈"
+                                data = uriString.replace(" ", "%20").toUri()
                             }
-                        }
+                                try {
+                                    context.startActivity(intent)
+                                } catch (_: ActivityNotFoundException) {
+                                    Toast.makeText(context, "No email app found", Toast.LENGTH_SHORT).show()
+                                } },
+                            DropdownMenuItemData(stringResource(R.string.dropdown_rate)) {
+                                val appId = "com.makstuff.minimalistcaloriecounter"
+                                val fallbackToPlayStore = {
+                                    val intent = Intent(Intent.ACTION_VIEW).apply {
+                                        data = "market://details?id=$appId".toUri()
+                                        setPackage("com.android.vending")
+                                    }
+                                    try {
+                                        context.startActivity(intent)
+                                    } catch (_: ActivityNotFoundException) {
+                                        uriHandler.openUri("https://play.google.com/store/apps/details?id=$appId")
+                                    }
+                                }
+                                if (activity != null) {
+                                    // Use FakeReviewManager locally so you can see it work!
+                                    val reviewManager = if (BuildConfig.DEBUG) {
+                                        FakeReviewManager(context)
+                                    } else {
+                                        ReviewManagerFactory.create(context)
+                                    }
+                                    val request = reviewManager.requestReviewFlow()
+                                    request.addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            val reviewInfo = task.result
+                                            val flow = reviewManager.launchReviewFlow(activity, reviewInfo)
+                                            flow.addOnCompleteListener { _ ->
+                                                Toast.makeText(context, "Fake Review Triggered Successfully!", Toast.LENGTH_SHORT).show()
+                                            }
+                                        } else {
+                                            fallbackToPlayStore()
+                                        }
+                                    }
+                                } else {
+                                    fallbackToPlayStore()
+                                }
+                            },
+                        )
                     )
                 }
             )
@@ -405,6 +469,12 @@ fun App(
         bottomBar = {
             NavigationBar(
                 items = listOf(
+                    NavigationBarItemData(
+                        stringResource(R.string.database_navbar), R.drawable.list, uiState.navigationBarHighlight == DATABASE
+                    ) { navTo("database_home") },
+                    NavigationBarItemData(
+                        stringResource(R.string.archive), R.drawable.archive, uiState.navigationBarHighlight == ARCHIVE
+                    ) { navTo("archive_home") },
                     NavigationBarItemData(
                         stringResource(R.string.day), R.drawable.today, uiState.navigationBarHighlight == DAY
                     ) {
@@ -415,17 +485,16 @@ fun App(
                         }
                     },
                     NavigationBarItemData(
-                        stringResource(R.string.archive), R.drawable.archive, uiState.navigationBarHighlight == ARCHIVE
-                    ) { navTo("archive_home") },
-                    NavigationBarItemData(
-                        stringResource(R.string.database_navbar), R.drawable.list, uiState.navigationBarHighlight == DATABASE
-                    ) { navTo("database_home") },
-                    NavigationBarItemData(
                         stringResource(R.string.food), R.drawable.food, uiState.navigationBarHighlight == CREATE
-                    ) { navTo("create_home") },
+                    ) { 
+                        viewModel.resetDatabaseEntryCreateAllInput()
+                        navTo("create_home") 
+                    },
                     NavigationBarItemData(
                         stringResource(R.string.combine), R.drawable.dish, uiState.navigationBarHighlight == COMBINE
-                    ) { navTo("combine_home") },
+                    ) {
+                        viewModel.currentComboReset(context)
+                        navTo("combine_home") },
                 ).map {
                     {
                         NavigationBarItem(
@@ -702,8 +771,7 @@ fun App(
                 fun onCreateFood() {
                     try {
                         viewModel.databaseCreateEntryFromInput(context)
-                        navTo("database_home")
-                        viewModel.resetDatabaseEntryCreateAllInput()
+                        navTo("day_home")
                     } catch (e: IllegalStateException) {
                         Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
                     }
@@ -743,7 +811,7 @@ fun App(
                         fun onConfirmEdit() {
                             try {
                                 viewModel.databaseEditEntryFromInput(index, context)
-                                navTo("database_home")
+                                navController.popBackStack()
                             } catch (e: IllegalStateException) {
                                 Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
                             }
@@ -767,10 +835,10 @@ fun App(
                                 viewModel.toggleDatabaseEntryEditQuickselect()
                             },
                             listOfTextButtons = listOf(
-                                Pair(stringResource(R.string.button_cancel)) { navTo("database_home") },
+                                Pair(stringResource(R.string.button_cancel)) { navController.popBackStack() },
                                 Pair(stringResource(R.string.button_delete)) {
                                     viewModel.databaseDeleteEntry(index, true, context)
-                                    navTo("database_home")
+                                    navController.popBackStack()
                                 },
                                 Pair(stringResource(R.string.button_save_changes)) {
                                     onConfirmEdit()
@@ -868,6 +936,18 @@ fun App(
                                             viewModel.setNameFoodDayAdd(it.second.name)
                                             viewModel.updateCurrentComboComponentWeight("")
                                             navTo("day_add_weight/${it.first}")
+                                        },
+                                        onLongClick = {
+                                                viewModel.updateDatabaseEntryEditName(uiState.database[it.first].name)
+                                                viewModel.updateDatabaseEntryEditAllNutrients(
+                                                    uiState.database[it.first].nutrients.stringValues(
+                                                        true
+                                                    ).toMutableStateList()
+                                                )
+                                                viewModel.updateDatabaseEntryEditCustomWeights(uiState.database[it.first].customWeights.inputString)
+                                                viewModel.updateDatabaseEntryEditQuickselect(uiState.database[it.first].quickselect)
+                                                navTo("database_edit_entry/${it.first}")
+
                                         }
                                     )
                                 }
@@ -888,10 +968,11 @@ fun App(
                                     .weight(1f)
                                     .padding(horizontal = 4.dp),
                                 value = uiState.currentCombo.name,
-                                onValueChange = { viewModel.currentComboUpdateName(it) },
+                                onValueChange = {viewModel.currentComboUpdateName(it.replaceFirstChar { it -> it.uppercase() }) },
                                 label = stringResource(R.string.recipename),
                                 placeholder = stringResource(R.string.example_recipe_name),
                                 keyboardOptions = KeyboardOptions(
+                                    capitalization = KeyboardCapitalization.Sentences,
                                     imeAction = ImeAction.Next
                                 ),
                                 keyboardActions = KeyboardActions(
@@ -928,8 +1009,7 @@ fun App(
                             try {
                                 val food = uiState.currentCombo.toDatabaseEntry()
                                 viewModel.databaseAddEntry(context, true, food)
-                                viewModel.currentComboReset(context)
-                                navTo("database_home")
+                                navTo("day_home")
                             } catch (e: IllegalStateException) {
                                 Toast.makeText(context, e.message, Toast.LENGTH_LONG)
                                     .show()
@@ -958,6 +1038,17 @@ fun App(
                                             viewModel.updateCurrentComboComponentWeight("")
                                             viewModel.setNameFoodCombineAdd(it.second.name)
                                             navTo("combine_add_weight/${it.first}")
+                                        },
+                                        onLongClick = {
+                                            viewModel.updateDatabaseEntryEditName(uiState.database[it.first].name)
+                                            viewModel.updateDatabaseEntryEditAllNutrients(
+                                                uiState.database[it.first].nutrients.stringValues(
+                                                    true
+                                                ).toMutableStateList()
+                                            )
+                                            viewModel.updateDatabaseEntryEditCustomWeights(uiState.database[it.first].customWeights.inputString)
+                                            viewModel.updateDatabaseEntryEditQuickselect(uiState.database[it.first].quickselect)
+                                            navTo("database_edit_entry/${it.first}")
                                         }
                                     )
                                 }

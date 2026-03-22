@@ -4,6 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -13,10 +14,12 @@ import com.makstuff.minimalistcaloriecounter.ui.theme.AppTypography
 @Composable
 fun ButtonText(
     text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     TextButton(
-        onClick = { onClick() }
+        onClick = { onClick() },
+        modifier = modifier
     ) {
         Text(
             text = text,
@@ -24,7 +27,8 @@ fun ButtonText(
             color = MaterialTheme.colorScheme.onSurface,
             overflow = TextOverflow.Ellipsis,
             maxLines = 2,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            softWrap = true
         )
     }
 }

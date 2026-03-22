@@ -14,10 +14,12 @@ fun ButtonGrid (
     modifier: Modifier = Modifier,
     text: String,
     onClick: () -> Unit,
+    onLongClick: () -> Unit = {},
 ){
     ButtonBox(
         modifier = modifier,
         onClick = { onClick() },
+        onLongClick = { onLongClick() },
         content = {
             Text(
                 text = text,

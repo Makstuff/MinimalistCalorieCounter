@@ -22,6 +22,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.makstuff.minimalistcaloriecounter.R
@@ -59,10 +60,13 @@ fun ScreenDatabaseEntry(
             items = listOf<Pair<Int, @Composable () -> Unit>>(Pair(2) {
                 TextField(
                     value = inputName,
-                    onValueChange = { onUpdateName(it) },
+                    onValueChange = { text ->
+                        onUpdateName(text.replaceFirstChar { it.uppercase() })
+                    },
                     label = stringResource(R.string.name),
                     placeholder = stringResource(R.string.food_name_example),
                     keyboardOptions = KeyboardOptions(
+                        capitalization = KeyboardCapitalization.Sentences,
                         imeAction = ImeAction.Next
                     ),
                     keyboardActions = KeyboardActions(

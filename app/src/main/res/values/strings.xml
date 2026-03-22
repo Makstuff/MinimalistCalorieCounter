@@ -28,14 +28,14 @@
     <string name="button_turn_day_to_archive_entry">Turn Day to Archive Entry</string>
     <string name="button_turn_to_archive_entry">Turn to Archive Entry</string>
     <string name="button_turn_to_database_entry">Turn to Database Entry</string>
-    <string name="carbohydrate_protein_fat_combined">Carbohydrate, protein, fat and fiber combined can\'t weigh more than 100g.</string>
-    <string name="carbohydrates_include_sugar">Carbohydrates include sugar, so sugar can\'t weigh more.</string>
-    <string name="choose_language">Choose language</string>
+    <string name="carbohydrate_protein_fat_combined">Total carbs, protein, fat and fiber must be max 100g.</string>
+    <string name="carbohydrates_include_sugar">Sugar cannot exceed total carbohydrates.</string>
+    <string name="choose_language">Language</string>
     <string name="combine">Recipe</string>
     <string name="csv_wrong_number_fields">CSV the has wrong number of fields.</string>
-    <string name="custom_weights">Custom weights</string>
+    <string name="custom_weights">Quickselect weights</string>
     <string name="custom_weights_example">e.g. \"55:1 Scoop-110:2 Scoops\"</string>
-    <string name="custom_weights_format">Custom weights must be of the format \"number:name-number:name…?\"</string>
+    <string name="custom_weights_format">Quickselect weights must be \"number:name-number:name…\".</string>
     <string name="dark_mode">Dark mode</string>
     <string name="database">Database</string>
     <string name="database_navbar">Database</string>
@@ -49,24 +49,24 @@
     <string name="dialog_database_import">Importing a Database file overrides the old file in any case, even if the new file might not be valid.</string>
     <string name="dialog_database_reset">You are about to reset your Database to factory state. All the Entries you have added will be permanently lost.</string>
     <string name="dialog_destructive_action">Destructive Action</string>
-    <string name="dialog_language">If you want to change the language of the default Database Entries too, you can reset the Database after changing the language. It will then use the default file of the new language.</string>
+    <string name="dialog_language">If you also want to change the database language, you can now reset the database using the option \"%1$s\". Note that this will load the default database in the current language, and all the entries you added in the previous language will be permanently lost.</string>
     <string name="dialog_reset_day">This will delete all the Food in your Day.</string>
     <string name="dialog_reset_recipe">This will delete all the ingredients in your Recipe.</string>
     <string name="dropdown_backup_archive">Export Archive</string>
     <string name="dropdown_backup_database">Export Database</string>
     <string name="dropdown_clear_archive">Clear Archive</string>
-    <string name="dropdown_github">Github (includes guide)</string>
+    <string name="dropdown_github">GitHub (includes guide)</string>
     <string name="dropdown_import_archive">Import Archive</string>
     <string name="dropdown_import_database">Import Database</string>
     <string name="dropdown_reset_database">Reset Database</string>
     <string name="entry_from_empty_recipe">Can\'t create Database Entry from empty Recipe.</string>
     <string name="example_recipe_name">e.g. \"Stew\"</string>
-    <string name="fat_includes_saturated_fat">Fat includes saturated fat, so saturated fat can\'t weigh more.</string>
+    <string name="fat_includes_saturated_fat">Saturated fat cannot exceed total fat.</string>
     <string name="food">Food</string>
     <string name="food_name_example">e.g. \"Apple\"</string>
     <string name="import_failed">Import failed.</string>
     <string name="import_successful">Import successful.</string>
-    <string name="is_in_quickselect">In Quickselect</string>
+    <string name="is_in_quickselect">Easy access</string>
     <string name="is_invalid">is invalid</string>
     <string name="legend">Food name</string>
     <string name="must_be_a_valid_number">must be a valid number</string>
@@ -74,11 +74,11 @@
     <string name="must_be_smaller_than">must be smaller than</string>
     <string name="name">Name</string>
     <string name="name_cant_be_empty">Name can\'t be empty.</string>
-    <string name="name_capital_letter">Name must start with a capital letter (A-Z).</string>
+    <string name="name_capital_letter">Name must start with a capital letter (A-Z, no accents).</string>
     <string name="name_no_commas">Name can\'t include commas or linebreaks.</string>
     <string name="options">Options</string>
     <string name="overall_weight">Overall weight</string>
-    <string name="quickselect_value_">Quickselect value can only be \"y\" or \"n\".</string>
+    <string name="quickselect_value_">\"Quickselect\" value can only be \"y\" or \"n\".</string>
     <string name="recipe">Recipe</string>
     <string name="recipename">Recipe name</string>
     <string name="sum_if_empty">sum if empty</string>
@@ -100,7 +100,7 @@
     <string name="weight_of_food">Weight of Food</string>
     <string name="weight_of_ingredient">Weight of Ingredient</string>
     <string-array name="dark_mode_options">
-        <item>System default</item>
+        <item>System</item>
         <item>Light</item>
         <item>Dark</item>
     </string-array>
@@ -124,4 +124,8 @@
         <item>Fiber</item>
         <item>Cost</item>
     </string-array>
+    <string name="report_problem">Contact developer</string>
+    <string name="button_understood">Understood</string>
+    <string name="database_language">Database language</string>
+    <string name="dropdown_rate">Rate on Play Store 🙏❤️</string>
 </resources>
