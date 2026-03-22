@@ -1,11 +1,3 @@
-## About this app
-
-After testing lots of different calorie counter apps without finding one I was completely happy with, I finally decided to take matters into my own hand and learn how to code for Android myself. This resulting app is exactly what I personally want and fits my every need, but I can understand that might not be the case everyone. The main barriers are probably
-1. my decision to not use a large external food database, because I prefer to gather data either directly from the product labels or, if that's not possible, from other sources like my nutrition book or websites that I can choose and double-check if some numbers seem questionable, and
-2. the interface, which is optimized for using a minimum amount of clicks in the long-term and sacrifices a lot of potential intuitivity for that.
-
-I hope that despite all that, this app will find its niche in the Play Store universe and make some lives a little easier.
-
 ## User guide
 
 Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear.
@@ -21,6 +13,14 @@ Many of the functions and elements should be pretty self-explanatory, this is ju
 - If you do not like the provided standard database, you can import [database_empty.csv](https://github.com/Makstuff/MinimalistCalorieCounter/blob/9da0ef3786e6f7f54b71d335681c2f8e5c225166/database_empty.csv) to clear out everything.
 - In case you have trouble with the *.csv import, check out the default files [here](https://github.com/Makstuff/MinimalistCalorieCounter/tree/3cd6049b0cee640e6fdbafbaff69f8ea3e6b145c/app/src/main/res/raw) and make sure yours look exactly the same and avoid Especially certain illegal symbols (";|,) like a sneaky comma in "3,5% whole milk" can be quite hard to find, and the in-app error messages due to my lack of skill are not overly specific.
 - Note that I used Gemini for the French, Italian and Spanish translations. More than anything this was an experiment if people are interested in more translations at all. If there is some nonsense in the translated files somewhere, please let me know here or at message.makstuff@outlook.com. You are also very welcome to ask for (smaller) changes or new features, but nothing too complicated (so no charts and no notifications and no online backup and the likes, sorry).
+
+## About this app
+
+After testing lots of different calorie counter apps without finding one I was completely happy with, I finally decided to take matters into my own hand and learn how to code for Android myself. This resulting app is exactly what I personally want and fits my every need, but I can understand that might not be the case everyone. The main barriers are probably
+1. my decision to not use a large external food database, because I prefer to gather data either directly from the product labels or, if that's not possible, from other sources like my nutrition book or websites that I can choose and double-check if some numbers seem questionable, and
+2. the interface, which is optimized for using a minimum amount of clicks in the long-term and sacrifices a lot of potential intuitivity for that.
+
+I hope that despite all that, this app will find its niche in the Play Store universe and make some lives a little easier.
 
 [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
 
