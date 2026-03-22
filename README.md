@@ -11,7 +11,7 @@ I hope that despite all that, this app will find its niche in the Play Store uni
 Many of the functions and elements should be pretty self-explanatory, this is just a short rundown of a few which might not be as clear. Please let me know if you feel anything essential is missing.
 
 - You can make your most-eaten foods appear directly on the homescreen, so you can add them with a single click. Find them in the Database, click on them, flip the "Easy Access" switch and press "Save changes".
-- If you often eat the same amount of a certain food, below the Easy Access switch you can also add a set of "quickselect weights" to make these weights available with just one click below the normal weight buttons (note that they take up two columns to allow space for slightlylonger names).  Fill in the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and press "Save changes".
+- If you often eat the same amount of a certain food, below the Easy Access switch you can also add a set of "quickselect weights" to make these weights available with just one click below the normal weight buttons (note that they take up two columns in the weight number matrix to allow space for slightly longer names).  Fill in the weights and names separated by colons and hyphens (e.g. "55:1 Scoop-110:2 Scoops") and press "Save changes".
 - You can long-press the Easy Access buttons on the "Day" and "Recipe" screens to go directly to their edit page.
 - You can repeatedly press the "Day" button in the navigation bar to switch between the "Add" and "Edit" modes even faster.
 - When creating a recipe, you can leave the "Overall weight" empty if you want to use the sum of ingredient weights, which is then calculated automatically.
