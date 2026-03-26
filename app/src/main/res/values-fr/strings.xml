@@ -128,4 +128,6 @@
     <string name="button_understood">Compris</string>
     <string name="database_language">Langue de la base de données</string>
     <string name="dropdown_rate">Noter sur le Play Store 🙏❤️</string>
+    <string name="dialog_archive_delete">Êtes-vous sûr de vouloir supprimer cette entrée d\'archive ?</string>
+    <string name="dialog_database_delete">Êtes-vous sûr de vouloir supprimer cette entrée de la base de données ?</string>
 </resources>

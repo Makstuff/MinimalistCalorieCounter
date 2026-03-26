@@ -128,4 +128,6 @@
     <string name="button_understood">Verstanden</string>
     <string name="database_language">Datenbanksprache</string>
     <string name="dropdown_rate">App im Play Store bewerten 🙏❤️</string>
+    <string name="dialog_archive_delete">Bist du sicher, dass du diesen Archiveintrag löschen möchtest?</string>
+    <string name="dialog_database_delete">Bist du sicher, dass du diesen Datenbankeintrag löschen möchtest?</string>
 </resources>

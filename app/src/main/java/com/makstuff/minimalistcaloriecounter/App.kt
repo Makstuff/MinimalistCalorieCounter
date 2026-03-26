@@ -370,6 +370,46 @@ fun App(
                                 title = {Text(stringResource(R.string.dialog_destructive_action))})
                         }
                     }
+                    when {
+                        uiState.alertDialogArchiveDelete -> {
+                            AlertDialog(
+                                onDismissRequest = { viewModel.setAlertDialogArchiveDelete(false) },
+                                confirmButton = {
+                                    ButtonText(text = stringResource(R.string.button_confirm), onClick = {
+                                        if (uiState.indexArchiveDelete != -1) {
+                                            viewModel.archiveDeleteEntry(uiState.indexArchiveDelete)
+                                            navTo("archive_home")
+                                        }
+                                        viewModel.setAlertDialogArchiveDelete(false)
+                                    })
+                                },
+                                dismissButton = {
+                                    ButtonText(text = stringResource(R.string.button_cancel), onClick = { viewModel.setAlertDialogArchiveDelete(false) })
+                                },
+                                text = { Text(stringResource(R.string.dialog_archive_delete)) },
+                                title = { Text(stringResource(R.string.dialog_destructive_action)) })
+                        }
+                    }
+                    when {
+                        uiState.alertDialogDatabaseDelete -> {
+                            AlertDialog(
+                                onDismissRequest = { viewModel.setAlertDialogDatabaseDelete(false) },
+                                confirmButton = {
+                                    ButtonText(text = stringResource(R.string.button_confirm), onClick = {
+                                        if (uiState.indexDatabaseDelete != -1) {
+                                            viewModel.databaseDeleteEntry(uiState.indexDatabaseDelete, true, context)
+                                            navController.popBackStack()
+                                        }
+                                        viewModel.setAlertDialogDatabaseDelete(false)
+                                    })
+                                },
+                                dismissButton = {
+                                    ButtonText(text = stringResource(R.string.button_cancel), onClick = { viewModel.setAlertDialogDatabaseDelete(false) })
+                                },
+                                text = { Text(stringResource(R.string.dialog_database_delete)) },
+                                title = { Text(stringResource(R.string.dialog_destructive_action)) })
+                        }
+                    }
 
                     DropdownMenu(
                         expanded = uiState.dropdownMenuVisible,
@@ -734,8 +774,7 @@ fun App(
                                     navTo("archive_home")
                                 },
                                 Pair(stringResource(R.string.button_delete)) {
-                                    viewModel.archiveDeleteEntry(index)
-                                    navTo("archive_home")
+                                    viewModel.setAlertDialogArchiveDelete(true, index)
                                 },
                                 Pair(stringResource(R.string.button_save_changes)) { onConfirm() }
                             )
@@ -813,8 +852,7 @@ fun App(
                             listOfTextButtons = listOf(
                                 Pair(stringResource(R.string.button_cancel)) { navController.popBackStack() },
                                 Pair(stringResource(R.string.button_delete)) {
-                                    viewModel.databaseDeleteEntry(index, true, context)
-                                    navController.popBackStack()
+                                    viewModel.setAlertDialogDatabaseDelete(true, index)
                                 },
                                 Pair(stringResource(R.string.button_save_changes)) {
                                     onConfirmEdit()

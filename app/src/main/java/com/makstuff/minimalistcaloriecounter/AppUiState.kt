@@ -105,4 +105,8 @@ data class AppUiState(
     val dialogLanguage: Boolean = false,
     val dialogLanguageInfo: Boolean = false,
 
+    val alertDialogArchiveDelete: Boolean = false,
+    val indexArchiveDelete: Int = -1,
+    val alertDialogDatabaseDelete: Boolean = false,
+    val indexDatabaseDelete: Int = -1,
 )

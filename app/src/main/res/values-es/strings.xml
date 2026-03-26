@@ -128,4 +128,6 @@
     <string name="button_understood">Entiendo</string>
     <string name="database_language">Idioma de la base de datos</string>
     <string name="dropdown_rate">Calificar en Play Store 🙏❤️</string>
+    <string name="dialog_archive_delete">¿Estás seguro de que quieres eliminar esta entrada del archivo?</string>
+    <string name="dialog_database_delete">¿Estás seguro de que quieres eliminar esta entrada de la base de datos?</string>
 </resources>

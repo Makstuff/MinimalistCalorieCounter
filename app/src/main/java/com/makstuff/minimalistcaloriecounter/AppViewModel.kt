@@ -433,7 +433,23 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    fun setAlertDialogArchiveDelete(bool: Boolean, index: Int = -1){
+        _uiState.update { currentState ->
+            currentState.copy(
+                alertDialogArchiveDelete = bool,
+                indexArchiveDelete = index
+            )
+        }
+    }
 
+    fun setAlertDialogDatabaseDelete(bool: Boolean, index: Int = -1){
+        _uiState.update { currentState ->
+            currentState.copy(
+                alertDialogDatabaseDelete = bool,
+                indexDatabaseDelete = index
+            )
+        }
+    }
 
     fun updateCurrentComboComponentWeight(string: String) {
         _uiState.update { currentState ->
@@ -688,5 +704,3 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 }
-
-

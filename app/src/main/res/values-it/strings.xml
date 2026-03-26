@@ -44,7 +44,7 @@
     <string name="date_pattern_short">dd MMM</string>
     <string name="day">Giorno</string>
     <string name="dialog_archive_clear">Stai per eliminare tutte le tue voci di archivio. Questa azione è permanente e irreversibile.</string>
-    <string name="dialog_archive_import">L\'importazione di un file di archivio sovrascrive il vecchio file in ogni caso, anche se il nuovo file potrebbe non essere valido.</string>
+    <string name="dialog_archive_import">L\'importazione di un file di archivio sovrascrive il vecchio file in ogni caso, anche si il nuovo file potrebbe non essere valido.</string>
     <string name="dialog_dangerous_action">Azione pericolosa</string>
     <string name="dialog_database_import">L\'importazione di un file di database sovrascrive il vecchio file in ogni caso, anche se il nuovo file potrebbe non essere valido.</string>
     <string name="dialog_database_reset">Stai per ripristinare il tuo database allo stato di fabbrica. Tutte le voci aggiunte andranno perse permanentemente.</string>
@@ -128,4 +128,6 @@
     <string name="button_understood">Capito</string>
     <string name="database_language">Lingua del database</string>
     <string name="dropdown_rate">Valuta sul Play Store 🙏❤️</string>
+    <string name="dialog_archive_delete">Sei sicuro di voler eliminare questa voce dell\'archivio?</string>
+    <string name="dialog_database_delete">Sei sicuro di voler eliminare questa voce dal database?</string>
 </resources>
