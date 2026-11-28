@@ -1,0 +1,113 @@
+# Publishes a signed APK to GitHub Releases when a version tag (e.g. v4.4) is pushed
+# (when signing secrets are configured), or when triggered manually via workflow_dispatch.
+#
+# Option 1 — Automated CI Releases (GitHub Repository Secrets):
+#   Add these under Settings -> Secrets and variables -> Actions:
+#     KEYSTORE_BASE64   : Base64-encoded .jks / .keystore file
+#     KEYSTORE_PASSWORD : Keystore password
+#     KEY_ALIAS         : Key alias
+#     KEY_PASSWORD      : Key password
+#   Then push a tag (`git tag v4.4 && git push origin v4.4`) to build and publish automatically.
+#
+# Option 2 — Local Signed Build + Direct Upload (keeps keystore local-only):
+#   Create a git-ignored `keystore.properties` in the project root:
+#     storeFile=path/to/your-keystore.jks
+#     storePassword=...
+#     keyAlias=...
+#     keyPassword=...
+#   Run `./gradlew assembleRelease` and attach `app/build/outputs/apk/release/app-release.apk`
+#   to a new GitHub Release via `gh release create` or the GitHub web UI.
+
+name: Release APK
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag (e.g. v4.4)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check signing mode
+        id: mode
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Skipping automated APK build on tag push because KEYSTORE_BASE64 secret is not configured (safe for manual local APK uploads)."
+            echo "should_build=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout repository
+        if: steps.mode.outputs.should_build == 'true'
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21 and 17
+        if: steps.mode.outputs.should_build == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: |
+            21
+            17
+
+      - name: Set up Gradle
+        if: steps.mode.outputs.should_build == 'true'
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Decode signing keystore
+        if: steps.mode.outputs.should_build == 'true'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 --decode > release-keystore.jks
+            echo "KEYSTORE_FILE=release-keystore.jks" >> "$GITHUB_ENV"
+          else
+            echo "::warning::KEYSTORE_BASE64 secret is not set; APK will use debug signing."
+          fi
+
+      - name: Build Release APK
+        if: steps.mode.outputs.should_build == 'true'
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Prepare APK artifact
+        if: steps.mode.outputs.should_build == 'true'
+        id: artifact
+        env:
+          INPUT_TAG: ${{ inputs.tag_name }}
+        run: |
+          TAG="${INPUT_TAG:-$GITHUB_REF_NAME}"
+          APK_NAME="MinimalistCalorieCounter-${TAG}.apk"
+          cp app/build/outputs/apk/release/app-release.apk "$APK_NAME"
+          echo "apk_name=$APK_NAME" >> "$GITHUB_OUTPUT"
+          echo "tag_name=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Publish GitHub Release
+        if: steps.mode.outputs.should_build == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.artifact.outputs.tag_name }}
+          name: Minimalist Calorie Counter ${{ steps.artifact.outputs.tag_name }}
+          files: ${{ steps.artifact.outputs.apk_name }}
+          generate_release_notes: true
+
+      - name: Clean up keystore
+        if: always() && steps.mode.outputs.should_build == 'true'
+        run: rm -f release-keystore.jks
