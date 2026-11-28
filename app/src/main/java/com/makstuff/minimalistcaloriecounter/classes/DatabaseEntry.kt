@@ -7,6 +7,7 @@ import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NAME
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NUTRIENTS_LOWER
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_NUTRIENTS_UPPER
 import com.makstuff.minimalistcaloriecounter.essentials.CSV_INDEX_DATABASE_QUICKSELECT
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INPUT_ORDER
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
 import com.makstuff.minimalistcaloriecounter.essentials.toFormattedString
 
@@ -20,11 +21,11 @@ data class DatabaseEntry(
 ) {
     init {
         checkName(name, context)
-        nutrients.values.forEachIndexed { index, value ->
+        NUTRIENT_INPUT_ORDER.forEach { index ->
             checkDoubleRange(
-                value,
+                nutrients.values[index],
                 NUTRIENT_PROPERTIES[index].upperBound,
-                context.resources.getStringArray(R.array.nutrient_names)[index] ,
+                context.resources.getStringArray(R.array.nutrient_names)[index],
             )
         }
         check(nutrients.values[1]+nutrients.values[3]+nutrients.values[4]+nutrients.values[6]<=100.0)

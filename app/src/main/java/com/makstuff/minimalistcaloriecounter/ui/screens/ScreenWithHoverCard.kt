@@ -21,6 +21,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.makstuff.minimalistcaloriecounter.R
 import com.makstuff.minimalistcaloriecounter.classes.Nutrients
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INDEX_COST
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INDEX_ENERGY
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INDEX_FIBER
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_OVERVIEW_MACRO_ORDER
 import com.makstuff.minimalistcaloriecounter.ui.reused.RowOfButtonText
 import com.makstuff.minimalistcaloriecounter.ui.reused.TextOneLine
 
@@ -42,6 +46,7 @@ fun ScreenWithHoverCard(
             contentAbove()
             val nutrientValues = nutrients.stringValues(false)
             val nutrientPercentages = nutrients.percentages()
+            val nutrientNamesShort = context.resources.getStringArray(R.array.nutrient_names_short)
             Column(
                 Modifier.fillMaxWidth().padding(top = 4.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -57,38 +62,20 @@ fun ScreenWithHoverCard(
                         textAlign = TextAlign.Center,
                         text = buildAnnotatedString {
                             withStyle(style = SpanStyle(fontSize = 32.sp)) {
-                                append(nutrientValues[0]+" ")
+                                append(nutrientValues[NUTRIENT_INDEX_ENERGY]+" ")
                             }
                             append("kcal")
                         },
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
                     )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[1],
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[2],
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[3],
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[4],
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[5],
-                        style = MaterialTheme.typography.bodySmall
-                    )
+                    NUTRIENT_OVERVIEW_MACRO_ORDER.forEach { macroIndex ->
+                        TextOneLine(
+                            modifier = Modifier.weight(3f).alignByBaseline(),
+                            text = nutrientNamesShort[macroIndex],
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
                     TextOneLine(
                         modifier = Modifier.weight(1.5f).alignByBaseline(),
                         text = "",
@@ -98,65 +85,37 @@ fun ScreenWithHoverCard(
                 Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
                     TextOneLine(
                         modifier = Modifier.weight(4f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[6],
+                        text = nutrientNamesShort[NUTRIENT_INDEX_FIBER],
                         style = MaterialTheme.typography.bodySmall
                     )
                     TextOneLine(
                         modifier = Modifier.weight(4f).alignByBaseline(),
-                        text = context.resources.getStringArray(R.array.nutrient_names_short)[7],
+                        text = nutrientNamesShort[NUTRIENT_INDEX_COST],
                         style = MaterialTheme.typography.bodySmall
                     )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientValues[1]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientValues[2]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientValues[3]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientValues[4]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientValues[5]
-                    )
+                    NUTRIENT_OVERVIEW_MACRO_ORDER.forEach { macroIndex ->
+                        TextOneLine(
+                            modifier = Modifier.weight(3f).alignByBaseline(),
+                            text = nutrientValues[macroIndex]
+                        )
+                    }
                     TextOneLine(modifier = Modifier.weight(1.5f).alignByBaseline(), text = "g")
                 }
                 Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
                     TextOneLine(
                         modifier = Modifier.weight(4f).alignByBaseline(),
-                        text = nutrientValues[6] + "g"
+                        text = nutrientValues[NUTRIENT_INDEX_FIBER] + "g"
                     )
                     TextOneLine(
                         modifier = Modifier.weight(4f).alignByBaseline(),
-                        text = nutrientValues[7] + "€"
+                        text = nutrientValues[NUTRIENT_INDEX_COST] + "€"
                     )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientPercentages[0]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientPercentages[1]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientPercentages[2]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientPercentages[3]
-                    )
-                    TextOneLine(
-                        modifier = Modifier.weight(3f).alignByBaseline(),
-                        text = nutrientPercentages[4]
-                    )
+                    nutrientPercentages.forEach { percentage ->
+                        TextOneLine(
+                            modifier = Modifier.weight(3f).alignByBaseline(),
+                            text = percentage
+                        )
+                    }
                     TextOneLine(modifier = Modifier.weight(1.5f).alignByBaseline(), text = "%")
                 }
             }

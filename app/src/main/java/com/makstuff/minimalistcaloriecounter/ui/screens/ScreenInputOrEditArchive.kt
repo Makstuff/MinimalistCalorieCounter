@@ -25,6 +25,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.makstuff.minimalistcaloriecounter.R
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INDEX_ENERGY
+import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_INPUT_ORDER
 import com.makstuff.minimalistcaloriecounter.essentials.NUTRIENT_PROPERTIES
 import com.makstuff.minimalistcaloriecounter.ui.reused.Grid
 import com.makstuff.minimalistcaloriecounter.ui.reused.RowOfButtonText
@@ -78,10 +80,11 @@ fun ScreenInputOrEditArchive(
                         )
                     }
                 )
-            }) + NUTRIENT_PROPERTIES.mapIndexed { index, nutrientProperties ->
+            }) + NUTRIENT_INPUT_ORDER.map { index ->
+                val nutrientProperties = NUTRIENT_PROPERTIES[index]
                 Pair<Int, @Composable () -> Unit>(1) {
                     TextField(
-                        modifier = if (index == 0) Modifier.focusRequester(focusRequesterEnergy) else Modifier,
+                        modifier = if (index == NUTRIENT_INDEX_ENERGY) Modifier.focusRequester(focusRequesterEnergy) else Modifier,
                         value = inputNutrients[index],
                         onValueChange = { onUpdateNutrient(it, index) },
                         label = stringArrayResource(R.array.nutrient_names)[index],
