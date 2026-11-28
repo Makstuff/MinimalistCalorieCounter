@@ -49,4 +49,4 @@ The early versions of this app until about version code 3 were coded 100% manual
 
 My email: <message.makstuff@gmail.com>
 
-Donations: [Buy me a coffee.](https://www.buymeacoffee.com/makstuff)
+Donations: [Buy me a coffee](https://www.buymeacoffee.com/makstuff)
